@@ -1,0 +1,1458 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie-Ticket_Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&icon_names=fastfood" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/a93d142cd4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <nav class="navbar custom-nav navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fs-1" href="#"><i class="fa-solid fa-masks-theater"></i> CineGo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../html/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/movies.html">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/cinemas.html">Theaters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/ticket.html">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/offers.html">Offers</a>
+                    </li>
+                </ul>
+                <div class="search-container me-2">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search movies, theatres..." class="form-control" id="searchInput">
+                </div>
+                <div class="d-flex align-items-center gap-3 loc">
+
+                    <div class="city-dropdown">
+
+                        <button class="city-btn" id="cityBtn">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span id="selectedCity">Chennai</span>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+                        <div class="city-menu" id="cityMenu">
+
+                            <div class="city-search">
+
+                                <i class="fa-solid fa-magnifying-glass"></i>
+
+                                <input type="text" id="citySearch" placeholder="Search for your city">
+
+                            </div>
+
+                            <div class="city-list">
+
+                                <div class="city-item active" data-city="Chennai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Chennai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Bengaluru">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Bengaluru</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Hyderabad">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Hyderabad</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Mumbai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Mumbai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Delhi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Delhi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Kochi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Kochi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Coimbatore">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Coimbatore</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Madurai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Madurai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <button class="btn btn-danger rounded-pill " id="profileIcon">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+
+
+                    <div class="theme-btn">
+                        <i class="fas fa-adjust"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <section id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active my-5"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class="my-5"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" class="my-5"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" class="my-5"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" class="my-5"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+
+                <div class="banner-media">
+
+                    <picture class="bannerImage">
+                        <source media="(max-width:768px)"
+                            srcset="https://cdn.district.in/movies-assets/images/cinema/2_Poster%20(6)-dbe766f0-803a-11f1-bb55-33bed1b57141.jpg?im=Resize,width=960">
+
+                        <img src="https://i.ytimg.com/vi/fJaAYcERf3Y/maxresdefault.jpg" class="d-block w-100">
+                    </picture>
+
+                    <!-- Background Trailer -->
+                    <iframe class="trailerFrame" style="display:none;" allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
+
+                    <button class="close-trailer" style="display:none;" onclick="closeTrailer(this)">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                </div>
+
+                <div class="carousel-caption">
+
+                    <span class="badge bg-danger mb-3">Action • Thriller</span>
+
+                    <h5>Jana Nayagan</h5>
+
+                    <div class="movie-meta">
+                        ⭐ 8.8/10 | 2h 35m | Tamil
+                    </div>
+
+                    <p>
+                        A gripping action drama featuring Vijay in a
+                        power-packed role filled with suspense,
+                        emotion and political intrigue.
+                    </p>
+
+                    <div class="hero-btns mt-4">
+
+                        <button class="btn btn-danger px-4" onclick="bookNow('janaNayagan')">
+                            <i class="fa-solid fa-ticket me-2"></i>Book Now
+                        </button>
+
+                        <button class="btn btn-outline-light" onclick="playTrailer(this,'janaNayagan')">
+                            <i class="fa-solid fa-circle-play me-2"></i>Watch Trailer
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="carousel-item">
+                <div class="banner-media">
+
+                    <picture class="bannerImage">
+                        <source media="(max-width:768px)"
+                            srcset="https://m.media-amazon.com/images/M/MV5BMDg3NGQ0MGQtMWI2Ny00YjE3LTgxNzctZjJjZDVkMmQ5NzFlXkEyXkFqcGc@._V1_.jpg">
+
+                        <img src="https://i.ytimg.com/vi/gcXw7BMSfIQ/maxresdefault.jpg" class="d-block w-100">
+                    </picture>
+                    <iframe class="trailerFrame" style="display:none;" allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
+
+                    <button class="close-trailer" style="display:none;" onclick="closeTrailer(this)">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="carousel-caption">
+                    <span class="badge bg-danger mb-3">
+                        Romantic • Drama
+                    </span>
+
+                    <h5>Anbe Diana</h5>
+
+                    <div class="movie-meta">
+                        ⭐ 8.0/10 | 2h 16m | Tamil
+                    </div>
+
+                    <p>
+                        A heartfelt romantic drama that follows Diana as she embarks on an
+                        emotional journey of love, hope, and self-discovery. As unexpected
+                        challenges test her relationships, she learns that true love is
+                        built on trust, courage, and unwavering faith.
+                    </p>
+                    <div class="hero-btns mt-4">
+                        <button class="btn btn-danger px-4" onclick="bookNow('anbeDiana')">
+                            <i class="fa-solid fa-ticket me-2"></i>Book Now
+                        </button>
+
+                        <button class="btn btn-outline-light" onclick="playTrailer(this,'anbeDiana')">
+                            <i class="fa-solid fa-circle-play me-2"></i>Watch Trailer
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="banner-media">
+                    <picture class="bannerImage">
+                        <!-- Mobile Image -->
+                        <source media="(max-width: 768px)" srcset="">
+                        <!-- Desktop Image -->
+                        <img src="https://i.ytimg.com/vi/JLEDwlSZcAI/maxresdefault.jpg" class="d-block w-100" alt="...">
+                    </picture>
+                    <iframe class="trailerFrame" style="display:none;" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+
+                    <button class="close-trailer" onclick="closeTrailer(this)">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                </div>
+                <div class="carousel-caption">
+                    <span class="badge bg-danger mb-3">
+                        Action • Adventure • Fantasy
+                    </span>
+
+                    <h5>The Odyssey</h5>
+
+                    <div class="movie-meta">
+                        ⭐ 8.6/10 | 2h 50m | English +2 more
+                    </div>
+
+                    <p>
+                        Inspired by Homer's legendary epic, The Odyssey follows the heroic
+                        journey of Odysseus as he battles mythical creatures, powerful gods,
+                        and impossible odds on his long voyage home. An unforgettable tale
+                        of courage, survival, and destiny.
+                    </p>
+                    <div class="hero-btns mt-4">
+                        <button class="btn btn-danger px-4" onclick="bookNow('odyssey')">
+                            <i class="fa-solid fa-ticket me-2"></i>Book Now
+                        </button>
+
+                        <button class="btn btn-outline-light" onclick="playTrailer(this,'odyssey')">
+                            <i class="fa-solid fa-circle-play me-2"></i>Watch Trailer
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="banner-media">
+                    <picture class="bannerImage">
+                        <!-- Mobile Image -->
+                        <source media="(max-width: 768px)"
+                            srcset="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb-BurCrbwVtk12xhM9NaxrX1bLuJhqyFctgPIsvutx5bpvdqhb4g5UZw&s=10">
+                        <!-- Desktop Image -->
+                        <img src="https://i.ytimg.com/vi/iBQS7eYEq-4/maxresdefault.jpg" class="d-block w-100" alt="...">
+                    </picture>
+                    <iframe class="trailerFrame" style="display:none;" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+
+                    <button class="close-trailer" onclick="closeTrailer(this)">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="carousel-caption">
+                    <span class="badge bg-danger mb-3">
+                        Action • Crime • Thriller
+                    </span>
+
+                    <h5>Furious</h5>
+
+                    <div class="movie-meta">
+                        ⭐ 8.4/10 | 2h 22m | English
+                    </div>
+
+                    <p>
+                        A high-speed action thriller that follows an elite driver drawn into
+                        a dangerous world of underground racing, international crime, and
+                        explosive betrayals. With relentless chases and adrenaline-fueled
+                        action, every race becomes a fight for survival.
+                    </p>
+
+                    <div class="hero-btns mt-4">
+                        <button class="btn btn-danger px-4" onclick="bookNow('furious')">
+                            <i class="fa-solid fa-ticket me-2"></i>Book Now
+                        </button>
+
+                        <button class="btn btn-outline-light" onclick="playTrailer(this,'furious')">
+                            <i class="fa-solid fa-circle-play me-2"></i>Watch Trailer
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="banner-media">
+                    <picture class="bannerImage">
+                        <!-- Mobile Image -->
+                        <source media="(max-width: 768px)"
+                            srcset="https://cdn.district.in/movies-assets/images/cinema/image-(29)-5648ad80-6a44-11f1-a3aa-8f451d7c3990.jpg">
+
+                        <!-- Desktop Image -->
+                        <img src="https://cdn.district.in/movies-assets/images/cinema/Horizontal-Spider-Man-e54dc360-22c0-11f1-8a01-2f0d4e0eb1bd.jpg"
+                            class="d-block w-100" alt="Spider-Man: Brand New">
+                    </picture>
+
+                    <iframe class="trailerFrame" style="display:none;" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+
+                    <button class="close-trailer" onclick="closeTrailer(this)">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="carousel-caption">
+
+                    <span class="badge bg-danger mb-3">
+                        Action • Adventure • Superhero
+                    </span>
+
+                    <h5>Spider-Man: Brand New</h5>
+
+                    <div class="movie-meta">
+                        ⭐ 8.9/10 | 2h 35m | English
+                    </div>
+
+                    <p>
+                        Peter Parker begins a new chapter after the events that changed his life forever.
+                        As powerful new enemies emerge and old secrets return, Spider-Man must protect
+                        New York while discovering what it truly means to become a hero once again.
+                    </p>
+
+                    <div class="hero-btns mt-4">
+
+                        <button class="btn btn-danger px-4" onclick="bookNow('spiderManBrandNew')">
+                            <i class="fa-solid fa-ticket me-2"></i>
+                            Book Now
+                        </button>
+
+                        <button class="btn btn-outline-light" onclick="playTrailer(this,'spiderManBrandNew')">
+                            <i class="fa-solid fa-circle-play me-2"></i>Watch Trailer
+                        </button>
+                        <button class="close-trailer" onclick="closeTrailer(this)">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+    </section>
+
+    <section class="filter-section">
+        <div class="container">
+
+            <div class="filter-bar">
+                <div class="dropdown">
+                    <button class="filter-dropdown dropdown-toggle" id="languageBtn" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                        <i class="fa-solid fa-language"></i>
+                        Languages
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item language-item" href="#">All</a></li>
+                        <li><a class="dropdown-item language-item" href="#">Tamil</a></li>
+                        <li><a class="dropdown-item language-item" href="#">Telugu</a></li>
+                        <li><a class="dropdown-item language-item" href="#">Hindi</a></li>
+                        <li><a class="dropdown-item language-item" href="#">Malayalam</a></li>
+                        <li><a class="dropdown-item language-item" href="#">Kannada</a></li>
+                        <li><a class="dropdown-item language-item" href="#">English</a></li>
+                    </ul>
+                </div>
+
+                <!-- Genre -->
+                <div class="dropdown">
+                    <button class="filter-dropdown dropdown-toggle" id="genreBtn" data-bs-toggle="dropdown">
+                        <i class="fa-solid fa-film"></i>
+                        Genres
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item genre-item" href="#">All</a></li>
+                        <li><a class="dropdown-item genre-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item genre-item" href="#">Comedy</a></li>
+                        <li><a class="dropdown-item genre-item" href="#">Romance</a></li>
+                        <li><a class="dropdown-item genre-item" href="#">Horror</a></li>
+                        <li><a class="dropdown-item genre-item" href="#">Family</a></li>
+                        <li><a class="dropdown-item genre-item" href="#">Political</a></li>
+                        <li><a class="dropdown-item genre-item" href="#">Fantasy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Format -->
+                <div class="dropdown">
+                    <button id="formatBtn" class="filter-dropdown dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa-solid fa-video"></i>
+                        Format
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item format-item" href="#" data-format="All">All</a></li>
+                        <li><a class="dropdown-item format-item" href="#" data-format="2D">2D</a></li>
+                        <li><a class="dropdown-item format-item" href="#" data-format="3D">3D</a></li>
+                        <li><a class="dropdown-item format-item" href="#" data-format="IMAX">IMAX</a></li>
+                        <li><a class="dropdown-item format-item" href="#" data-format="4DX">4DX</a></li>
+                    </ul>
+                </div>
+
+                <!-- Date -->
+                <div class="dropdown">
+                    <button id="dateBtn" class="filter-dropdown dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Date
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item date-item" href="#" data-date="All">All</a></li>
+                        <li><a class="dropdown-item date-item" href="#" data-date="Today">Today</a></li>
+                        <li><a class="dropdown-item date-item" href="#" data-date="Tomorrow">Tomorrow</a></li>
+                        <li><a class="dropdown-item date-item" href="#" data-date="Weekend">Weekend</a></li>
+                        <li><a class="dropdown-item date-item" href="#" data-date="Next Week">Next Week</a></li>
+                        <li><a class="dropdown-item date-item" href="#" data-date="This Month">This Month</a></li>
+                        <li><a class="dropdown-item date-item" href="#" data-date="Next Month">Next Month</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Filters -->
+                <button id="trendingBtn" class="filter-pill" data-filter="trending">
+                    🔥 Trending
+                </button>
+
+                <button id="topRatedBtn" class="filter-pill" data-filter="top-rated">
+                    ⭐ Top Rated
+                </button>
+
+                <button id="nowShowingBtn" class="filter-pill" data-filter="now-showing">
+                    🎟 Now Showing
+                </button>
+
+                <button id="comingSoonBtn" class="filter-pill" data-filter="coming-soon">
+                    🚀 Coming Soon
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+    <!---------Now Showing ------------->
+    <section class="card-group now-showing" id="now-showing">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center my-5">
+                <h2 class="section-title mb-0">Now Showing</h2>
+                <a href="#" class="text-danger text-decoration-none" id="nowViewMoreBtn">
+                    View All
+                </a>
+            </div>
+            <div class="cards_01 pt-4" id="nowShowingCards"></div>
+        </div>
+    </section>
+    <!-------------- Language Popup ------------------>
+    <div id="languagePopup" class="popup">
+        <div class="popup-content">
+            <h3>Select Language</h3>
+
+            <div id="languageList"></div>
+
+            <button onclick="continueBooking()">Continue</button>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+
+    <!------------ Upcoming Blockbusters --------------->
+    <section class="card-group upcoming" id="upcomingSection">
+
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center my-5">
+                <h2 class="section-title mb-0">
+                    Upcoming Blockbuster
+                </h2>
+
+                <a href="#" id="upcomingViewMoreBtn" class="text-danger text-decoration-none">
+                    View All
+                </a>
+            </div>
+
+            <div id="upcomingCards" class="cards_01 pt-4"></div>
+
+        </div>
+
+    </section>
+    <!-- theater details -->
+    <section class="card-group pt-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="section-title mb-0">Premium Experiences</h2>
+                <a href="#" class="text-danger text-decoration-none" id="premiumViewMoreBtn">View All</a>
+            </div>
+            <div class="cards premium-cards pt-4">
+                <div class="theater-card" data-theatre="INOX:LUXE" data-location="Phoenix Market City, Velachery"
+                    data-screen="Laser Projection" data-audio="Dolby Atmos" data-seat="Luxe Recliners">
+                    <div class="theater-poster">
+                        <img src="https://images.unsplash.com/photo-1595769816263-9b910be24d5f?q=80&w=1758&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Movie">
+                    </div>
+                    <div class="movie-content">
+                        <div class="details">
+                            <h5>INOX:LUXE</h5>
+                            <p> phoenix Market City, Velachery </p>
+                            <div class="theater-info">
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-film"></i>
+                                    <div>
+                                        <small>Screen</small>
+                                        <strong>Laser Projection</strong>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                    <div>
+                                        <small>Audio</small>
+                                        <strong>Dolby Atmos</strong>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-chair"></i>
+                                    <div>
+                                        <small>Seating</small>
+                                        <strong>Luxe Recliners</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <button class="btn btn-danger w-100 explore-btn">
+                            <i class="fa-solid fa-film"></i>
+                            Explore Theatre
+                        </button>
+
+                    </div>
+                </div>
+                <div class="theater-card">
+                    <div class="theater-poster">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/035/782/544/small/ai-generated-empty-cinema-seats-cinema-free-photo.jpg"
+                            alt="Movie">
+                    </div>
+                    <div class="movie-content">
+                        <div class="details">
+                            <h5>PVR</h5>
+                            <p> Grand Mall, Velachery </p>
+                            <div class="theater-info">
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-film"></i>
+                                    <div>
+                                        <small>Screen</small>
+                                        <strong>IMAX Experience</strong>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                    <div>
+                                        <small>Audio</small>
+                                        <strong>Dolby 7.1</strong>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-ticket"></i>
+                                    <div>
+                                        <small>Booking</small>
+                                        <strong>Instant E-Tickets</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <button class="btn btn-danger w-100">
+                            <i class="fa-solid fa-film"></i>
+                            Explore Theatre
+                        </button>
+
+                    </div>
+                </div>
+                <div class="theater-card">
+                    <div class="theater-poster">
+                        <img src="https://images.pexels.com/photos/12616961/pexels-photo-12616961.jpeg"
+                            alt="Movie">
+                    </div>
+                    <div class="movie-content">
+                        <div class="details">
+                            <h5>KC RG3 LASER DOLBY ATMOS</h5>
+                            <p> Krishnaveni Cinemas, Tnagar </p>
+                            <div class="theater-info">
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-tv"></i>
+                                    <div>
+                                        <small>Projection</small>
+                                        <strong>4K RGB Laser</strong>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                    <div>
+                                        <small>Audio</small>
+                                        <strong>Dolby Atmos</strong>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-expand"></i>
+                                    <div>
+                                        <small>Screen</small>
+                                        <strong>Giant Premium Screen</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <button class="btn btn-danger w-100">
+                            <i class="fa-solid fa-film"></i>
+                            Explore Theatre
+                        </button>
+
+                    </div>
+                </div>
+                <div class="theater-card hide">
+                    <div class="theater-poster">
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop"
+                            alt="SPI Palazzo">
+                    </div>
+                    <div class="movie-content">
+                        <div class="details">
+
+                            <h5>SPI Palazzo</h5>
+
+                            <p>The Forum Vijaya Mall, Vadapalani</p>
+
+                            <div class="theater-info">
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-crown"></i>
+                                    <div>
+                                        <small>Experience</small>
+                                        <strong>Premium Lounge</strong>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-chair"></i>
+                                    <div>
+                                        <small>Seating</small>
+                                        <strong>Luxury Recliners</strong>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-film"></i>
+                                    <div>
+                                        <small>Projection</small>
+                                        <strong>Laser Projection</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <button class="btn btn-danger w-100">
+                            <i class="fa-solid fa-film"></i>
+                            Explore Theatre
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="theater-card hide">
+                    <div class="theater-poster">
+                        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1200&auto=format&fit=crop"
+                            alt="AGS Cinemas">
+                    </div>
+                    <div class="movie-content">
+                        <div class="details">
+
+                            <h5>AGS Cinemas</h5>
+
+                            <p>Navalur, Chennai</p>
+
+                            <div class="theater-info">
+
+                                <div class="info-item">
+                                    <i class="fa-solid fa-film"></i>
+                                    <div>
+                                        <small>Projection</small>
+                                        <strong>4K Digital</strong>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                    <div>
+                                        <small>Audio</small>
+                                        <strong>Dolby Atmos</strong>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fa-solid fa-popcorn"></i>
+                                    <div>
+                                        <small>Food</small>
+                                        <strong>Snack Bar</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-danger w-100">
+                            <i class="fa-solid fa-film"></i>
+                            Explore Theatre
+                        </button>
+                    </div>
+                </div>
+                <div class="theater-card hide">
+                    <div class="theater-poster">
+                        <img src="https://images.unsplash.com/photo-1643553517154-24eb7fd86437?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="PVR ICON">
+                    </div>
+                    <div class="movie-content">
+                        <div class="details">
+                            <h5>PVR ICON IMAX</h5>
+                            <p>VR Chennai, Anna Nagar</p>
+                            <div class="theater-info">
+                                <div class="info-item">
+                                    <i class="fa-solid fa-film"></i>
+                                    <div>
+                                        <small>Screen</small>
+                                        <strong>IMAX Laser</strong>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                    <div>
+                                        <small>Audio</small>
+                                        <strong>Dolby Atmos</strong>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fa-solid fa-chair"></i>
+                                    <div>
+                                        <small>Seating</small>
+                                        <strong>Premium Recliners</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <button class="btn btn-danger w-100">
+                            <i class="fa-solid fa-film"></i>
+                            Explore Theatre
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="card-group pt-5" id="offer-card">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="section-title mb-3">Exclusive Offer</h2>
+                <a href="#" class="text-danger text-decoration-none" id="offerViewMoreBtn">
+                    View All
+                </a>
+            </div>
+
+            <div class="cards" id="offerCards"></div>
+
+        </div>
+    </section>
+    <section class="card-group pt-5">
+        <div class="container-fluid">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="section-title mb-3 container">What Our Guests Say</h2>
+            </div>
+
+            <div class="testimonial-slider py-3">
+
+                <div class="testimonial-track">
+
+                    <!-- Card 1 -->
+                    <div class="feedback-card">
+                        <i class="fa-solid fa-quote-right imp"></i>
+
+                        <div class="mb-3 text-warning fs-5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <div class="feedback-content edit">
+                            <p>"The IMAX experience here is unmatched. The recliners are so comfortable, I almost forgot
+                                I
+                                wasn't at home, but the sound quality reminded me why I came!"</p>
+                        </div>
+
+                        <div class="profile">
+                            <img class="profile_pic"
+                                src="https://images.pexels.com/photos/38624440/pexels-photo-38624440.jpeg">
+                            <div class="profile_name">
+                                <h5>Priya Raman</h5>
+                                <small>Social Media Activist</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="feedback-card">
+                        <i class="fa-solid fa-quote-right imp"></i>
+
+                        <div class="mb-3 text-warning fs-5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+
+                        <div class="feedback-content edit">
+                            <p>"App-la ticket book panradhu romba easy! Bank offers use panni nalla discount-um
+                                kidaichudhu. Popcorn pre-book option
+                                super convenient. Definitely my first choice!"</p>
+                        </div>
+
+                        <div class="profile">
+                            <img class="profile_pic"
+                                src="https://images.pexels.com/photos/7256314/pexels-photo-7256314.jpeg">
+                            <div class="profile_name">
+                                <h5>Ashwin Kumar</h5>
+                                <small>Tech Professional</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="feedback-card">
+                        <i class="fa-solid fa-quote-right imp"></i>
+
+                        <div class="mb-3 text-warning fs-5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <div class="feedback-content edit">
+                            <p>"Absolutely loved the luxury seating and crystal-clear projection. Every visit feels like
+                                a
+                                VIP experience."</p>
+
+                        </div>
+
+                        <div class="profile">
+                            <img class="profile_pic"
+                                src="https://images.pexels.com/photos/11826232/pexels-photo-11826232.jpeg">
+                            <div class="profile_name">
+                                <h5>Gayathri</h5>
+                                <small>Model</small>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="feedback-card">
+                        <i class="fa-solid fa-quote-right imp"></i>
+
+                        <div class="mb-3 text-warning fs-5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <div class="feedback-content edit">
+                            <p>"Seat availability live-ah kaatradhu romba useful. Favourite seats book panradhu easy,
+                                payment-um secure-ah complete
+                                aagudhu."</p>
+                        </div>
+
+                        <div class="profile">
+                            <img class="profile_pic"
+                                src="https://images.pexels.com/photos/33261976/pexels-photo-33261976.jpeg">
+                            <div class="profile_name">
+                                <h5>Michael Adams</h5>
+                                <small>Film Critic</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="feedback-card">
+                        <i class="fa-solid fa-quote-right imp"></i>
+
+                        <div class="mb-3 text-warning fs-5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+
+                        <div class="feedback-content edit">
+                            <p>"The online booking process is incredibly smooth. Reserved seats and snack combos make
+                                every
+                                movie night hassle-free."</p>
+                        </div>
+
+                        <div class="profile">
+                            <img class="profile_pic"
+                                src="https://images.pexels.com/photos/36267555/pexels-photo-36267555.jpeg">
+                            <div class="profile_name">
+                                <h5>Isha K</h5>
+                                <small>Marketing Manager</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="feedback-card">
+                        <i class="fa-solid fa-quote-right imp"></i>
+
+                        <div class="mb-3 text-warning fs-5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <div class="feedback-content edit">
+                            <p>"IMAX experience semma! Recliner seats romba comfortable-ah irundhuchu. Home-la ukkandhu
+                                movie paakura feel vandhuchu,
+                                but Dolby Atmos sound theatre-ku vandhadhukku worth-nu prove panniduchu!"</p>
+                        </div>
+
+                        <div class="profile">
+                            <img class="profile_pic"
+                                src="https://images.pexels.com/photos/31623363/pexels-photo-31623363.jpeg">
+                            <div class="profile_name">
+                                <h5>Harish</h5>
+                                <small>Movie Blogger</small>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Duplicate Card 1 -->
+                    <div class="feedback-card">
+                        <i class="fa-solid fa-quote-right imp"></i>
+
+                        <div class="mb-3 text-warning fs-5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <div class="feedback-content edit">
+                            <p>"The IMAX experience here is unmatched. The recliners are so comfortable, I almost forgot
+                                I
+                                wasn't at home, but the sound quality reminded me why I came!"</p>
+                        </div>
+
+                        <div class="profile">
+                            <img class="profile_pic"
+                                src="https://images.pexels.com/photos/38624440/pexels-photo-38624440.jpeg">
+                            <div class="profile_name">
+                                <h5>Priya Raman</h5>
+                                <small>Social Media Activist</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Duplicate Card 2 -->
+                    <div class="feedback-card">
+                        <i class="fa-solid fa-quote-right imp"></i>
+
+                        <div class="mb-3 text-warning fs-5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+
+                        <div class="feedback-content edit">
+                            <p>"App-la ticket book panradhu romba easy! Bank offers use panni nalla discount-um
+                                kidaichudhu. Popcorn pre-book option
+                                super convenient. Definitely my first choice!"</p>
+                        </div>
+
+                        <div class="profile">
+                            <img class="profile_pic"
+                                src="https://images.pexels.com/photos/7256314/pexels-photo-7256314.jpeg">
+                            <div class="profile_name">
+                                <h5>Ashwin Kumar</h5>
+                                <small>Tech Professional</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Duplicate Card 3 -->
+                    <div class="feedback-card">
+                        <i class="fa-solid fa-quote-right imp"></i>
+
+                        <div class="mb-3 text-warning fs-5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <div class="feedback-content edit">
+                            <p>"Absolutely loved the luxury seating and crystal-clear projection. Every visit feels like
+                                a
+                                VIP experience."</p>
+
+                        </div>
+
+                        <div class="profile">
+                            <img class="profile_pic"
+                                src="https://images.pexels.com/photos/11826232/pexels-photo-11826232.jpeg">
+                            <div class="profile_name">
+                                <h5>Gayathri</h5>
+                                <small>Model</small>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--Duplicate Card 4 -->
+                    <div class="feedback-card">
+                        <i class="fa-solid fa-quote-right imp"></i>
+
+                        <div class="mb-3 text-warning fs-5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <div class="feedback-content edit">
+                            <p>"Seat availability live-ah kaatradhu romba useful. Favourite seats book panradhu easy,
+                                payment-um secure-ah complete
+                                aagudhu."</p>
+                        </div>
+
+                        <div class="profile">
+                            <img class="profile_pic"
+                                src="https://images.pexels.com/photos/33261976/pexels-photo-33261976.jpeg">
+                            <div class="profile_name">
+                                <h5>Michael Adams</h5>
+                                <small>Film Critic</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Duplicate Card 5 -->
+                    <div class="feedback-card">
+                        <i class="fa-solid fa-quote-right imp"></i>
+
+                        <div class="mb-3 text-warning fs-5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+
+                        <div class="feedback-content edit">
+                            <p>"The online booking process is incredibly smooth. Reserved seats and snack combos make
+                                every
+                                movie night hassle-free."</p>
+                        </div>
+
+                        <div class="profile">
+                            <img class="profile_pic"
+                                src="https://images.pexels.com/photos/36267555/pexels-photo-36267555.jpeg">
+                            <div class="profile_name">
+                                <h5>Isha K</h5>
+                                <small>Marketing Manager</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate Card 6 -->
+                    <div class="feedback-card">
+                        <i class="fa-solid fa-quote-right imp"></i>
+
+                        <div class="mb-3 text-warning fs-5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <div class="feedback-content edit">
+                            <p>"IMAX experience semma! Recliner seats romba comfortable-ah irundhuchu. Home-la ukkandhu
+                                movie paakura feel vandhuchu,
+                                but Dolby Atmos sound theatre-ku vandhadhukku worth-nu prove panniduchu!"</p>
+                        </div>
+
+                        <div class="profile">
+                            <img class="profile_pic"
+                                src="https://images.pexels.com/photos/31623363/pexels-photo-31623363.jpeg">
+                            <div class="profile_name">
+                                <h5>Harish</h5>
+                                <small>Movie Blogger</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="add_card container my-3">
+        <div class="row  d-flex align-items-md-center justify-content-md-between g-0">
+            <div class="col-12 col-md-8 p-4">
+                <div class="card-body">
+                    <p class="card-text mobile-text">Experience Cinema Luxe in Your Pocket</p>
+                    <p class="card-text mobile-text">Get faster bookings, exclusive
+                        mobile-only
+                        deals, and
+                        seamless entry with digital tickets. Download the app today.</small></p>
+                    <div class="image_cont">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Google_Play_Store_badge_IT.svg/3840px-Google_Play_Store_badge_IT.svg.png"
+                            width="140px" alt="">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Available_on_the_App_Store_%28black%29_SVG.svg/960px-Available_on_the_App_Store_%28black%29_SVG.svg.png"
+                            width="140px" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 p-4 qr">
+                <img src="../Assets/git_qr.png" class="img-fluid rounded-start" alt="...">
+                <p>Scan for More Details</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer mt-5">
+        <div class="container container_footer">
+            <div class="row gy-4">
+
+                <!-- About -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="f1">
+                        <h2 class="fs-4"><i class="fa-solid fa-masks-theater text-danger"></i>CineGo</h2>
+                        <p class="fs-5 w-100">
+                            Redefining the theatrical experience with
+                            cutting-edge technology and unparalleled luxury
+                            services.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-6 col-sm-6 col-lg-3">
+                    <div class="f2 mx-5">
+                        <h2 class="fs-4">QUICK LINKS</h2>
+                        <ul>
+                            <li><a href="#carouselExampleCaptions">Home</a></li>
+                            <li><a href="#now-showing">Now Showing</a></li>
+                            <li><a href="#upcoming">Upcoming Movies</a></li>
+                            <li><a href="#offer-card">Exclusive Offers</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Support -->
+                <div class="col-6 col-sm-6 col-lg-3">
+                    <div class="f2">
+                        <h2>SUPPORT</h2>
+                        <ul>
+                            <li>My Bookings</li>
+                            <li>Cancellation & Refund</li>
+                            <li>Help Center</li>
+                            <li>Terms & Conditions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="f3">
+                        <h2>CONTACT US</h2>
+                        <table>
+                            <tr>
+                                <td><i class="fa-solid fa-envelope"></i></td>
+                                <td>support@cinego.com</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-phone"></i></td>
+                                <td>+91-8231230987</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-location-dot"></i></td>
+                                <td>742 Evergreen Terrace, TN</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div class="text-center pt-2">
+            © 2026 CineGo. All Rights Reserved.
+        </div>
+    </footer>
+    <!-- Popup -->
+    <div class="auth-popup" id="authPopup">
+        <div class="auth-card">
+            <button class="close-btn" onclick="closeAuth()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="auth-header">
+                <h2>CineGo</h2>
+                <p>Welcome back. Sign in to continue.</p>
+            </div>
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="showLogin()" type="button">
+                    Sign In
+                </button>
+
+                <button class="tab-btn" onclick="showSignup()" type="button">
+                    Sign Up
+                </button>
+            </div>
+            <div class="auth-body">
+                <!-- Login -->
+                <form class="login-form">
+
+                    <input type="email" placeholder="Email Address" class="auth-input" autocomplete="email">
+
+                    <input type="password" placeholder="Password" class="auth-input" autocomplete="current-password">
+
+                    <div class="auth-links">
+                        <label>
+                            <input type="checkbox" id="rememberMe">
+                            Remember me
+                        </label>
+
+                        <a href="#" id="forgotPassword">Forgot?</a>
+                    </div>
+
+                    <button type="submit" class="auth-btn">
+                        Continue
+                    </button>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="button" class="google-btn">
+                        <i class="fa-brands fa-google"></i>
+                        Continue with Google
+                    </button>
+
+                </form>
+                <!-- Signup -->
+                <form class="signup-form d-none">
+
+                    <input type="text" placeholder="Full Name" class="auth-input">
+
+                    <input type="email" placeholder="Email Address" class="auth-input" autocomplete="email">
+
+                    <input type="password" placeholder="Password" class="auth-input" autocomplete="new-password">
+
+                    <input type="password" placeholder="Confirm Password" class="auth-input"
+                        autocomplete="confirm-password">
+
+                    <button type="submit" class="auth-btn">
+                        Create Account
+                    </button>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="button" class="google-btn">
+                        <i class="fa-brands fa-google"></i>
+                        Continue with Google
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ================= Profile Drawer ================= -->
+    <div class="profile-overlay" id="profileOverlay">
+
+        <div class="profile-sidebar">
+
+            <div class="profile-header">
+
+                <h3>My Profile</h3>
+
+                <button class="profile-close" id="closeProfile">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+            <div class="profile-user">
+                <div class="profile-avatar" id="profileAvatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <h4 id="profileName">Guest</h4>
+                    <p id="profileEmail">Please Login</p>
+                </div>
+
+            </div>
+
+            <div class="profile-menu">
+
+                <a href="./ticket.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    My Bookings
+                </a>
+
+                <a href="./contact.html">
+                    <i class="fa-brands fa-teamspeak"></i>
+                    chat With Us
+                </a>
+
+                <a href="terms.html">
+                    <i class="fa-solid fa-file-contract"></i>
+                    Terms & Conditions
+                </a>
+
+                <a href="privacy.html">
+                    <i class="fa-solid fa-file-shield"></i>
+                    Privacy Policy
+                </a>
+            </div>
+            <button class="logout-btn" id="loginBtn" onclick="showAuth()" style="display:none;">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </button>
+
+            <button class="logout-btn" id="logoutBtn" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+    <script src="../js/theme.js"></script>
+    <script src="../js/profile.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/city.js"></script>
+    <script src="../js/movies-data.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

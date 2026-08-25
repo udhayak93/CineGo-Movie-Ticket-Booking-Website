@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie-Ticket_Booking</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&icon_names=fastfood"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/a93d142cd4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/seat_bookings.css" />
+  </head>
+
+  <body>
+       <nav class="navbar custom-nav navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fs-1" href="#"><i class="fa-solid fa-masks-theater"></i> CineGo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../html/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../html/movies.html">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/cinemas.html">Theaters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/ticket.html">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/offers.html">Offers</a>
+                    </li>
+                </ul>
+                <div class="search-container me-2">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search movies, theatres..." class="form-control" id="searchInput">
+                </div>
+                <div class="d-flex align-items-center gap-3 loc">
+
+                    <div class="city-dropdown">
+
+                        <button class="city-btn" id="cityBtn">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span id="selectedCity">Chennai</span>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+                        <div class="city-menu" id="cityMenu">
+
+                            <div class="city-search">
+
+                                <i class="fa-solid fa-magnifying-glass"></i>
+
+                                <input type="text" id="citySearch" placeholder="Search for your city">
+
+                            </div>
+
+                            <div class="city-list">
+
+                                <div class="city-item active" data-city="Chennai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Chennai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Bengaluru">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Bengaluru</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Hyderabad">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Hyderabad</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Mumbai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Mumbai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Delhi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Delhi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Kochi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Kochi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Coimbatore">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Coimbatore</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Madurai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Madurai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <button class="btn btn-danger rounded-pill " id="profileIcon">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+
+
+                    <div class="theme-btn">
+                        <i class="fas fa-adjust"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <section class="booking-page">
+      <div class="container">
+        <div class="booking-path">
+          <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            Home
+          </a>
+          <span>/</span>
+          <a href="bookings.html"> Bookings </a>
+          <span>/</span>
+          <span class="active"> Seat Booking </span>
+        </div>
+        <div class="movie-card_01">
+          <div class="movie-poster">
+            <img id="seatMoviePoster" src="" alt="Movie Poster" />
+          </div>
+
+          <div class="movie-content">
+            <div class="movie-top">
+              <div>
+                <h1 id="seatMovieName"></h1>
+
+                <div class="movie-badges" id="seatMovieBadges"></div>
+
+                <p class="movie-description" id="seatMovieDescription"></p>
+
+                <div class="movie-info-grid" id="seatMovieInfo"></div>
+              </div>
+
+              <div class="movie-rating">
+                <i class="fa-solid fa-star"></i>
+                <span id="seatMovieRating"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="theatreContainer"></div>
+        <div class="time-wrapper" id="timeWrapper"></div>
+      </div>
+    </section>
+    <!-- ===========================
+            SEAT SECTION
+    =========================== -->
+
+    <section class="seat-section">
+      <div class="container">
+        <div class="seat-layout" data-prime="184" data-classic="54">
+          <div class="seat-category">
+            <span class="category-name">PRIME</span>
+            <span class="category-price">₹184</span>
+          </div>
+          <div class="seat-row number-row no-gap">
+            <span class="row-name custom">L</span>
+            <div class="seat-single">
+              <button class="seat accessible" data-seat="l1">
+                <i class="fa-brands fa-accessible-icon"></i>
+              </button>
+              <button class="seat accessible" data-seat="l2">
+                <i class="fa-solid fa-wheelchair"></i>
+              </button>
+              <button class="seat accessible" data-seat="l3">
+                <i class="fa-solid fa-wheelchair-move"></i>
+              </button>
+              <button class="seat" data-seat="l4">4</button>
+              <button class="seat" data-seat="l5">5</button>
+              <button class="seat" data-seat="l6">6</button>
+              <button class="seat" data-seat="l7">7</button>
+              <button class="seat" data-seat="l8">8</button>
+              <button class="seat" data-seat="l9">9</button>
+              <button class="seat" data-seat="l10">10</button>
+              <button class="seat" data-seat="l11">11</button>
+              <button class="seat" data-seat="l12">12</button>
+              <button class="seat" data-seat="l13">13</button>
+              <button class="seat" data-seat="l14">14</button>
+              <button class="seat accessible" data-seat="l15">
+                <i class="fa-solid fa-wheelchair"></i>
+              </button>
+              <button class="seat accessible" data-seat="L16">
+                <i class="fa-solid fa-wheelchair-move"></i>
+              </button>
+              <button class="seat" data-seat="L17">17</button>
+              <button class="seat" data-seat="L18">18</button>
+            </div>
+          </div>
+          <div class="seat-row">
+            <span class="row-name">K</span>
+            <div class="seat-single">
+              <button class="seat" data-seat="k1">1</button>
+              <button class="seat" data-seat="k2">2</button>
+              <button class="seat" data-seat="k3">3</button>
+              <button class="seat" data-seat="k4">4</button>
+              <button class="seat" data-seat="k5">5</button>
+              <button class="seat" data-seat="k6">6</button>
+              <button class="seat" data-seat="k7">7</button>
+              <button class="seat" data-seat="k8">8</button>
+              <button class="seat" data-seat="k9">9</button>
+            </div>
+            <div class="seat-gap"></div>
+            <div class="seat-single">
+              <button class="seat" data-seat="k10">10</button>
+              <button class="seat" data-seat="k11">11</button>
+              <button class="seat" data-seat="k12">12</button>
+              <button class="seat" data-seat="k13">13</button>
+              <button class="seat" data-seat="k14">14</button>
+              <button class="seat" data-seat="k15">15</button>
+              <button class="seat" data-seat="k16">16</button>
+            </div>
+          </div>
+          <div class="seat-row">
+            <span class="row-name">J</span>
+            <div class="seat-single">
+              <button class="seat" data-seat="j1">1</button>
+              <button class="seat" data-seat="j2">2</button>
+              <button class="seat" data-seat="j3">3</button>
+              <button class="seat" data-seat="j4">4</button>
+              <button class="seat" data-seat="j5">5</button>
+              <button class="seat" data-seat="j6">6</button>
+              <button class="seat" data-seat="j7">7</button>
+              <button class="seat" data-seat="j8">8</button>
+              <button class="seat" data-seat="j9">9</button>
+            </div>
+            <div class="seat-gap"></div>
+            <div class="seat-single">
+              <button class="seat" data-seat="j10">10</button>
+              <button class="seat" data-seat="j11">11</button>
+              <button class="seat" data-seat="j12">12</button>
+              <button class="seat" data-seat="j13">13</button>
+              <button class="seat" data-seat="j14">14</button>
+              <button class="seat" data-seat="j15">15</button>
+              <button class="seat" data-seat="j16">16</button>
+            </div>
+          </div>
+          <div class="seat-row">
+            <span class="row-name">I</span>
+            <div class="seat-single">
+              <button class="seat" data-seat="i1">1</button>
+              <button class="seat" data-seat="i2">2</button>
+              <button class="seat" data-seat="i3">3</button>
+              <button class="seat" data-seat="i4">4</button>
+              <button class="seat" data-seat="i5">5</button>
+              <button class="seat" data-seat="i6">6</button>
+              <button class="seat" data-seat="i7">7</button>
+              <button class="seat" data-seat="i8">8</button>
+              <button class="seat" data-seat="i9">9</button>
+            </div>
+            <div class="seat-gap"></div>
+            <div class="seat-single">
+              <button class="seat" data-seat="i10">10</button>
+              <button class="seat" data-seat="i11">11</button>
+              <button class="seat" data-seat="i12">12</button>
+              <button class="seat" data-seat="i13">13</button>
+              <button class="seat" data-seat="i14">14</button>
+              <button class="seat" data-seat="i15">15</button>
+              <button class="seat" data-seat="i16">16</button>
+            </div>
+          </div>
+          <div class="seat-row">
+            <span class="row-name">H</span>
+            <div class="seat-single">
+              <button class="seat" data-seat="h1">1</button>
+              <button class="seat" data-seat="h2">2</button>
+              <button class="seat" data-seat="h3">3</button>
+              <button class="seat" data-seat="h4">4</button>
+              <button class="seat" data-seat="h5">5</button>
+              <button class="seat" data-seat="h6">6</button>
+              <button class="seat" data-seat="h7">7</button>
+              <button class="seat" data-seat="h8">8</button>
+              <button class="seat" data-seat="h9">9</button>
+            </div>
+            <div class="seat-gap"></div>
+            <div class="seat-single">
+              <button class="seat" data-seat="h10">10</button>
+              <button class="seat" data-seat="h11">11</button>
+              <button class="seat" data-seat="h12">12</button>
+              <button class="seat" data-seat="h13">13</button>
+              <button class="seat" data-seat="h14">14</button>
+              <button class="seat" data-seat="h15">15</button>
+              <button class="seat" data-seat="h16">16</button>
+            </div>
+          </div>
+          <div class="seat-row">
+            <span class="row-name">G</span>
+            <div class="seat-single">
+              <button class="seat" data-seat="g1">1</button>
+              <button class="seat" data-seat="g2">2</button>
+              <button class="seat" data-seat="g3">3</button>
+              <button class="seat" data-seat="g4">4</button>
+              <button class="seat" data-seat="g5">5</button>
+              <button class="seat" data-seat="g6">6</button>
+              <button class="seat" data-seat="g7">7</button>
+              <button class="seat" data-seat="g8">8</button>
+              <button class="seat" data-seat="g9">9</button>
+            </div>
+            <div class="seat-gap"></div>
+            <div class="seat-single">
+              <button class="seat" data-seat="g10">10</button>
+              <button class="seat" data-seat="g11">11</button>
+              <button class="seat" data-seat="g12">12</button>
+              <button class="seat" data-seat="g13">13</button>
+              <button class="seat" data-seat="g14">14</button>
+              <button class="seat" data-seat="g15">15</button>
+              <button class="seat" data-seat="g16">16</button>
+            </div>
+          </div>
+          <div class="seat-row no-gap">
+            <span class="row-name">F</span>
+            <div class="seat-single">
+              <button class="seat" data-seat="f1">1</button>
+              <button class="seat" data-seat="f2">2</button>
+              <button class="seat" data-seat="f3">3</button>
+              <button class="seat" data-seat="f4">4</button>
+              <button class="seat" data-seat="f5">5</button>
+              <button class="seat" data-seat="f6">6</button>
+              <button class="seat" data-seat="f7">7</button>
+              <button class="seat" data-seat="f8">8</button>
+              <button class="seat" data-seat="f9">9</button>
+            </div>
+            <div class="seat-gap"></div>
+            <div class="seat-single">
+              <button class="seat" data-seat="f10">10</button>
+              <button class="seat" data-seat="f11">11</button>
+              <button class="seat" data-seat="f12">12</button>
+              <button class="seat" data-seat="f13">13</button>
+              <button class="seat" data-seat="f14">14</button>
+              <button class="seat" data-seat="f15">15</button>
+              <button class="seat" data-seat="f16">16</button>
+            </div>
+          </div>
+          <div class="row-gap"></div>
+          <div class="seat-row">
+            <span class="row-name">E</span>
+            <div class="seat-single">
+              <button class="seat" data-seat="e1">1</button>
+              <button class="seat" data-seat="e2">2</button>
+              <button class="seat" data-seat="e3">3</button>
+              <button class="seat" data-seat="e4">4</button>
+              <button class="seat" data-seat="e5">5</button>
+              <button class="seat" data-seat="e6">6</button>
+              <button class="seat" data-seat="e7">7</button>
+              <button class="seat" data-seat="e8">8</button>
+              <button class="seat" data-seat="e9">9</button>
+            </div>
+            <div class="seat-gap"></div>
+            <div class="seat-single">
+              <button class="seat" data-seat="e10">10</button>
+              <button class="seat" data-seat="e11">11</button>
+              <button class="seat" data-seat="e12">12</button>
+              <button class="seat" data-seat="e13">13</button>
+              <button class="seat" data-seat="e14">14</button>
+              <button class="seat" data-seat="e15">15</button>
+              <button class="seat" data-seat="e16">16</button>
+            </div>
+          </div>
+          <div class="seat-row">
+            <span class="row-name">D</span>
+            <div class="seat-single">
+              <button class="seat" data-seat="d1">1</button>
+              <button class="seat" data-seat="d2">2</button>
+              <button class="seat" data-seat="d3">3</button>
+              <button class="seat" data-seat="d4">4</button>
+              <button class="seat" data-seat="d5">5</button>
+              <button class="seat" data-seat="d6">6</button>
+              <button class="seat" data-seat="d7">7</button>
+              <button class="seat" data-seat="d8">8</button>
+              <button class="seat" data-seat="d9">9</button>
+            </div>
+            <div class="seat-gap"></div>
+            <div class="seat-single">
+              <button class="seat" data-seat="d10">10</button>
+              <button class="seat" data-seat="d11">11</button>
+              <button class="seat" data-seat="d12">12</button>
+              <button class="seat" data-seat="d13">13</button>
+              <button class="seat" data-seat="d14">14</button>
+              <button class="seat" data-seat="d15">15</button>
+              <button class="seat" data-seat="d16">16</button>
+            </div>
+          </div>
+          <div class="seat-row">
+            <span class="row-name">C</span>
+            <div class="seat-single">
+              <button class="seat" data-seat="c1">1</button>
+              <button class="seat" data-seat="c2">2</button>
+              <button class="seat" data-seat="c3">3</button>
+              <button class="seat" data-seat="c4">4</button>
+              <button class="seat" data-seat="c5">5</button>
+              <button class="seat" data-seat="c6">6</button>
+              <button class="seat" data-seat="c7">7</button>
+              <button class="seat" data-seat="c8">8</button>
+              <button class="seat" data-seat="c9">9</button>
+            </div>
+            <div class="seat-gap"></div>
+            <div class="seat-single">
+              <button class="seat" data-seat="c10">10</button>
+              <button class="seat" data-seat="c11">11</button>
+              <button class="seat" data-seat="c12">12</button>
+              <button class="seat" data-seat="c13">13</button>
+              <button class="seat" data-seat="c14">14</button>
+              <button class="seat" data-seat="c15">15</button>
+              <button class="seat" data-seat="c16">16</button>
+            </div>
+          </div>
+          <div class="seat-category">
+            <span class="category-name" >CLASSIC</span>
+            <span class="category-price">₹54</span>
+          </div>
+          <div class="seat-row">
+            <span class="row-name">B</span>
+            <div class="seat-single">
+              <button class="seat" data-seat="b1">1</button>
+              <button class="seat" data-seat="b2">2</button>
+              <button class="seat" data-seat="b3">3</button>
+              <button class="seat" data-seat="b4">4</button>
+              <button class="seat" data-seat="b5">5</button>
+              <button class="seat" data-seat="b6">6</button>
+              <button class="seat" data-seat="b7">7</button>
+              <button class="seat" data-seat="b8">8</button>
+              <button class="seat" data-seat="b9">9</button>
+            </div>
+            <div class="seat-gap"></div>
+            <div class="seat-single">
+              <button class="seat" data-seat="b10">10</button>
+              <button class="seat" data-seat="b11">11</button>
+              <button class="seat" data-seat="b12">12</button>
+              <button class="seat" data-seat="b13">13</button>
+              <button class="seat" data-seat="b14">14</button>
+              <button class="seat" data-seat="b15">15</button>
+              <button class="seat" data-seat="b16">16</button>
+            </div>
+          </div>
+          <div class="seat-row">
+            <span class="row-name">A</span>
+            <div class="seat-single">
+              <button class="seat" data-seat="a1">1</button>
+              <button class="seat" data-seat="a2">2</button>
+              <button class="seat" data-seat="a3">3</button>
+              <button class="seat" data-seat="a4">4</button>
+              <button class="seat" data-seat="a5">5</button>
+              <button class="seat" data-seat="a6">6</button>
+              <button class="seat" data-seat="a7">7</button>
+              <button class="seat" data-seat="a8">8</button>
+              <button class="seat" data-seat="a9">9</button>
+            </div>
+            <div class="seat-gap"></div>
+            <div class="seat-single">
+              <button class="seat" data-seat="a10">10</button>
+              <button class="seat" data-seat="a11">11</button>
+              <button class="seat" data-seat="a12">12</button>
+              <button class="seat" data-seat="a13">13</button>
+              <button class="seat" data-seat="a14">14</button>
+              <button class="seat" data-seat="a15">15</button>
+              <button class="seat" data-seat="a16">16</button>
+            </div>
+          </div>
+        </div>
+        <div class="screen">
+          <span>SCREEN THIS WAY</span>
+        </div>
+        <div class="seat-legend">
+          <div>
+            <span class="seat-demo available"></span>
+            Available
+          </div>
+
+          <div>
+            <span class="seat-demo selected"></span>
+            Selected
+          </div>
+
+          <div>
+            <span class="seat-demo booked"></span>
+            Reserved
+          </div>
+        </div>
+        <div class="booking-summary">
+          <div class="summary-item">
+            <small>Selected Seats</small>
+            <h5 id="selectedSeats">None</h5>
+          </div>
+
+          <div class="summary-item">
+            <small>Total Amount</small>
+            <h5>₹ <span id="totalPrice">0</span></h5>
+          </div>
+
+          <button id="continueBtn" class="continue-btn" disabled>
+            Continue
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popup -->
+    <div class="auth-popup" id="authPopup">
+      <div class="auth-card">
+        <button class="close-btn" onclick="closeAuth()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="auth-header">
+          <h2>CineGo</h2>
+          <p>Welcome back. Sign in to continue.</p>
+        </div>
+        <div class="auth-tabs">
+          <button class="tab-btn active" onclick="showLogin()" type="button">
+            Sign In
+          </button>
+
+          <button class="tab-btn" onclick="showSignup()" type="button">
+            Sign Up
+          </button>
+        </div>
+        <div class="auth-body">
+          <!-- Login -->
+          <form class="login-form">
+            <input
+              type="email"
+              placeholder="Email Address"
+              class="auth-input"
+              autocomplete="email"
+            />
+
+            <input
+              type="password"
+              placeholder="Password"
+              class="auth-input"
+              autocomplete="current-password"
+            />
+
+            <div class="auth-links">
+              <label>
+                <input type="checkbox" id="rememberMe" />
+                Remember me
+              </label>
+
+              <a href="#" id="forgotPassword">Forgot?</a>
+            </div>
+
+            <button type="submit" class="auth-btn">Continue</button>
+
+            <div class="divider">
+              <span>or</span>
+            </div>
+
+            <button type="button" class="google-btn">
+              <i class="fa-brands fa-google"></i>
+              Continue with Google
+            </button>
+          </form>
+          <!-- Signup -->
+          <form class="signup-form d-none">
+            <input type="text" placeholder="Full Name" class="auth-input" />
+
+            <input
+              type="email"
+              placeholder="Email Address"
+              class="auth-input"
+              autocomplete="email"
+            />
+
+            <input
+              type="password"
+              placeholder="Password"
+              class="auth-input"
+              autocomplete="new-password"
+            />
+
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              class="auth-input"
+              autocomplete="confirm-password"
+            />
+
+            <button type="submit" class="auth-btn">Create Account</button>
+
+            <div class="divider">
+              <span>or</span>
+            </div>
+
+            <button type="button" class="google-btn">
+              <i class="fa-brands fa-google"></i>
+              Continue with Google
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+   <!-- ================= Profile Drawer ================= -->
+    <div class="profile-overlay" id="profileOverlay">
+
+        <div class="profile-sidebar">
+
+            <div class="profile-header">
+
+                <h3>My Profile</h3>
+
+                <button class="profile-close" id="closeProfile">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+            <div class="profile-user">
+                <div class="profile-avatar" id="profileAvatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <h4 id="profileName">Guest</h4>
+                    <p id="profileEmail">Please Login</p>
+                </div>
+
+            </div>
+
+            <div class="profile-menu">
+
+                <a href="./ticket.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    My Bookings
+                </a>
+
+                <a href="./contact.html">
+                    <i class="fa-brands fa-teamspeak"></i>
+                    chat With Us
+                </a>
+
+                <a href="terms.html">
+                    <i class="fa-solid fa-file-contract"></i>
+                    Terms & Conditions
+                </a>
+
+                <a href="privacy.html">
+                    <i class="fa-solid fa-file-shield"></i>
+                    Privacy Policy
+                </a>
+            </div>
+            <button class="logout-btn" id="loginBtn" onclick="showAuth()" style="display:none;">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </button>
+
+            <button class="logout-btn" id="logoutBtn" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+    </div>
+    <script src="../js/movies-data.js"></script>
+    <script src="../js/profile.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/seat_booking.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

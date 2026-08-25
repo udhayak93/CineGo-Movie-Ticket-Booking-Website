@@ -1,0 +1,1017 @@
+.booking-page {
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.booking-path {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--color-grey-2);
+}
+
+.booking-path a {
+    text-decoration: none;
+    color: #666;
+    transition: .3s;
+}
+
+.booking-path a:hover {
+    color: #e50914;
+}
+
+.booking-path .active {
+    color: #e50914;
+    font-weight: 600;
+}
+
+.booking-path i {
+    margin-right: 5px;
+}
+
+.movie_header .container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.movie_header {
+    padding: 20px 0 40px;
+    min-height: calc(50vh - 90px);
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+.movie-header-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.poster {
+    width: 120px;
+    flex-shrink: 0;
+}
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+
+}
+
+.poster img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    transition: .35s;
+}
+
+.poster img:hover {
+    transform: scale(1.04);
+}
+
+.movie-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.movie-details h1 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    color: var(--color-white);
+}
+
+.movie-details h1 span {
+    font-size: 26px;
+    color: var(--color-grey-3);
+    font-weight: 500;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.rating span {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--color-grey-2);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.rating span:first-child {
+    color: #FFD43B;
+    font-weight: 600;
+}
+
+.rating span:first-child i {
+    margin-right: 6px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.info span {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--color-grey-2);
+    font-size: 19px;
+    position: relative;
+}
+
+.info span:not(:last-child)::after {
+    content: "•";
+    margin-left: 10px;
+    color: rgba(255, 255, 255, .35);
+}
+
+.date-section {
+    padding: 40px 0 20px;
+}
+
+.date-section .container {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    overflow-x: auto;
+
+}
+
+.month-card {
+    width: 55px;
+    height: 100px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.month-card span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: var(--color-white);
+    font-size: 14px;
+    letter-spacing: 3px;
+    font-weight: 600;
+
+}
+
+.date-scroll {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex: 1;
+    scrollbar-width: none;
+    padding: 8px 0px;
+}
+
+.date-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.date-card {
+    width: 70px;
+    height: 90px;
+    border-radius: 18px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .35s;
+    flex-shrink: 0;
+}
+
+.date-card h3 {
+    color: var(--color-white);
+    margin-bottom: 3px;
+    font-size: 28px;
+}
+
+.date-card p {
+    color: var(--color-grey-2);
+    margin: 0;
+    font-size: 14px;
+}
+
+.date-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-secondary);
+}
+
+.date-card.active {
+    background: linear-gradient(135deg, #e50914, #ff3c45);
+    border: none;
+}
+
+.date-card.active h3,
+.date-card.active p {
+    color: #fff;
+}
+
+/*==============================
+        FILTER SECTION
+===============================*/
+
+.filter-section {
+    padding-bottom: 30px;
+}
+
+.filter-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+.filter-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+
+.filter-btn {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--card-bg);
+    color: var(--color-white);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: .35s;
+    flex-shrink: 0;
+    font-size: 15px;
+}
+
+.filter-btn:hover {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(229, 9, 20, .25);
+}
+
+.filter-btn.active {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+.filter-btn i {
+    font-size: 14px;
+
+}
+
+/* filter extension */
+.offcanvas-body {
+    padding-bottom: 100px;
+}
+
+.filter-panel {
+    padding-top: 10px;
+    width: 340px;
+    background: #121212;
+    color: #fff;
+}
+
+.filter-panel .offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.filter-panel h5 {
+    font-weight: 700;
+}
+
+.filter-group {
+    margin-bottom: 30px;
+}
+
+.filter-group h6 {
+    font-size: 15px;
+    color: #9ca3af;
+    margin-bottom: 15px;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.chips button {
+    border: 1px solid rgba(255, 255, 255, .15);
+    background: #1e1e1e;
+    color: var(--color-white);
+    border-radius: 50px;
+    padding: 10px 18px;
+    transition: .3s;
+}
+
+.chips button:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.chips button.active {
+    background: var(--color-secondary);
+    color: var(--color-white);
+    border-color: var(--color-secondary);
+}
+
+
+.filter-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: #121212;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    display: flex;
+    gap: 15px;
+}
+
+.reset-btn {
+    flex: 1;
+    background: #252525;
+    border: none;
+    color: #fff;
+    border-radius: 12px;
+    height: 50px;
+}
+
+.apply-btn {
+    flex: 2;
+    background: var(--color-secondary);
+    border: none;
+    color: var(--color-white);
+    border-radius: 12px;
+    height: 50px;
+    font-weight: 600;
+}
+
+.apply-btn:hover {
+    background: var(--color-secondary);
+}
+
+/* =========================
+        Theater_info 
+ ==========================*/
+.movie-features {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.movie-features span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 500;
+    transition: .3s;
+    white-space: nowrap;
+
+}
+
+.movie-features span:hover {
+    border-color: var(--color-secondary);
+    transform: translateY(-3px);
+}
+
+.movie-features i {
+    color: var(--color-secondary);
+    font-size: 15px;
+}
+
+
+.theatre-section {
+    padding: 40px 0 80px;
+}
+
+.theatre-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.theatre-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 22px;
+    padding: 26px;
+    display: grid;
+    grid-template-columns: 120px 1fr 60px;
+    align-items: center;
+    transition: .35s;
+}
+
+.theatre-card:hover {
+    border-color: var(--color-secondary);
+    transform: translateY(-3px);
+}
+
+.theatre-center h3 {
+    width: 90%;
+    color: var(--color-white);
+    font-size: clamp(18px, 5vw, 22px);
+    line-height: 1.35;
+    font-weight: 600;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin-bottom: 8px;
+}
+
+.theatre-center h3>small {
+    font-size: 12px;
+    color: var(--color-grey-2);
+}
+
+.theatre-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    color: var(--color-grey-3);
+    font-size: 17px;
+    margin-bottom: 28px;
+}
+
+.theatre-info span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.theatre-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.theatre-info p {
+    color: var(--color-grey-2);
+    margin: 0;
+}
+
+.theatre-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.language-section{
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+    margin-bottom:16px;
+}
+
+.language-title{
+    width:80px;
+    min-width:80px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    color:#e11d48;
+    border-radius:25px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.language-showtimes{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    flex:1;
+}
+
+.fav-btn {
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    color: white;
+    transition: .3s;
+}
+
+.fav-btn i {
+
+    transition: .3s;
+
+}
+
+.fav-btn:hover i {
+
+    transform: scale(1.25);
+
+}
+
+.fa-solid.fa-heart {
+
+    color: #ff3b5c;
+
+}
+
+.fav-btn:hover {
+
+    background: #e50914;
+}
+
+.fav-btn.active {
+    background-color: var(--color-secondary);
+}
+
+.show-times {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.time-btn {
+    width: 90px;
+    height: 60px;
+    border-radius: 12px;
+    background: transparent;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-secondary);
+    font-weight: 600;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.time-btn:hover {
+    background: var(--color-secondary);
+    color: white;
+}
+
+.time-btn>small {
+    font-size: 10px;
+    display: block;
+}
+
+.time-btn.active {
+
+    background: #ff3b5c;
+
+    color: #fff;
+
+    border-color: #ff3b5c;
+
+}
+
+.time-btn.active small {
+
+    color: #fff;
+
+}
+
+.view-all {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+}
+
+.view-all a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-white) !important;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.view-all a i {
+    transition: .3s;
+}
+
+.view-all a:hover {
+    color: var(--color-secondary) !important;
+}
+
+.view-all a:hover i {
+    transform: translateX(6px);
+}
+
+.footer {
+    background: var(--card-bg);
+    color: var(--color-white);
+    margin-top: 80px;
+    border-top: 1px solid var(--border-color);
+}
+
+.container_footer {
+    padding: 50px 20px 20px;
+}
+
+.f1,
+.f2,
+.f3 {
+    margin: 0px;
+}
+
+.f2 ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.f2 ul li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.f2 ul li:hover {
+    color: var(--color-secondary);
+}
+
+.f3 table {
+    width: 100%;
+}
+
+.f3 td {
+    padding: 8px 0;
+}
+
+.f3 i {
+    color: var(--color-secondary);
+    margin-right: 10px;
+}
+
+/* ==============================
+        1200px
+================================*/
+
+@media (max-width:1200px) {
+
+    .movie-wrapper {
+        gap: 50px;
+    }
+
+    .poster {
+        width: 290px;
+    }
+
+    .movie-details h1 {
+        font-size: 2.6rem;
+    }
+
+}
+
+
+/* ==============================
+        992px
+================================*/
+
+@media (max-width:992px) {
+    .navbar-collapse {
+        background: var(--nav-dark);
+        padding: 15px;
+        border-radius: 15px;
+        margin-top: 10px;
+    }
+
+    .navbar-nav {
+        gap: 5px;
+    }
+
+    .nav-link {
+        padding: 8px 0;
+    }
+
+    .loc {
+        margin-top: 15px;
+        flex-direction: column;
+        gap: 12px !important;
+    }
+
+    .search-container {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .movie_header {
+        padding: 60px 0;
+    }
+
+    .movie_header .container {
+        gap: 24px;
+    }
+
+    .poster {
+        width: 100px;
+    }
+
+    .poster img {
+        height: 150px;
+    }
+
+    .movie-details h1 {
+        font-size: 34px;
+    }
+
+    .movie-details h1 span {
+        font-size: 20px;
+    }
+
+    .rating span,
+    .info span {
+        font-size: 16px;
+    }
+
+}
+
+
+
+/* ==============================
+        768px
+================================*/
+
+@media (max-width:768px) {
+
+    .container,
+    .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+
+    }
+
+    .movie_header {
+        padding: 50px 0;
+    }
+
+    .movie_header .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 22px;
+    }
+
+    .poster {
+        width: 170px;
+    }
+
+    .poster img {
+        height: 250px;
+    }
+
+    .movie-details {
+        width: 100%;
+    }
+
+    .movie-details h1 {
+        font-size: 32px;
+        margin-bottom: 14px;
+    }
+
+    .movie-details h1 span {
+        display: block;
+        font-size: 20px;
+        margin-top: 5px;
+    }
+
+    .rating {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 18px;
+    }
+
+    .info {
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .btn-danger {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .date-section .container {
+        gap: 12px;
+    }
+
+    .month-card {
+        width: 42px;
+        height: 78px;
+
+    }
+
+    .month-card span {
+        font-size: 12px;
+
+    }
+
+    .date-card {
+        width: 58px;
+        height: 75px;
+    }
+
+    .date-card h3 {
+        font-size: 22px;
+
+    }
+
+    .date-card p {
+        font-size: 12px;
+
+    }
+
+    .filter-wrapper {
+        gap: 10px;
+
+    }
+
+    .filter-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+
+    }
+
+    .theatre-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .time-btn {
+        width: calc(50% - 8px);
+    }
+
+}
+
+
+
+/* ==============================
+        576px
+================================*/
+
+@media (max-width:576px) {
+
+    .movie_header .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+    }
+
+    .movie-header-content {
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .poster {
+        width: 100px;
+        flex-shrink: 0;
+    }
+
+    .poster img {
+        height: 150px;
+    }
+
+    .movie-details {
+        min-width: 0;
+    }
+
+    .movie-details h1 {
+        font-size: 30px;
+        word-break: break-word;
+    }
+
+    .movie-details h1 span {
+        font-size: 18px;
+    }
+
+    .rating {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 16px 0;
+    }
+
+    .info {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .info span {
+        font-size: .9rem;
+    }
+
+    .time-btn {
+        width: 100%;
+    }
+
+    .theatre-card {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding: 20px;
+        border-radius: 18px;
+        position: relative;
+    }
+
+    .theatre-left {
+        display: flex;
+        justify-content: center;
+    }
+
+    .theatre-logo {
+        width: 75px;
+        height: 75px;
+    }
+
+    .theatre-info {
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .theatre-info span {
+        font-size: 14px;
+        justify-content: center;
+    }
+
+    .theatre-right {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .theatre-center {
+        width: 100%;
+        text-align: center;
+    }
+
+    .theatre-center h3 {
+        width: 100%;
+    }
+
+    .theatre-center h3 small {
+        font-size: 13px;
+    }
+
+    .show-times {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 12px;
+    }
+
+    .time-btn {
+        width: 100%;
+        height: 58px;
+        font-size: 14px;
+    }
+
+    .time-btn small {
+        display: block;
+        font-size: 10px;
+        margin-top: 4px;
+    }
+
+}

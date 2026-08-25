@@ -1,0 +1,833 @@
+.contact-page {
+    min-height: 100vh;
+    background: var(--color-primary);
+    color: var(--text-primary);
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   MAIN CONTACT WRAPPER
+   ========================================================= */
+.contact-wrapper {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 70px 0 90px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 55px;
+    align-items: start;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+   ========================================================= */
+
+.contact-intro {
+    padding-top: 50px;
+}
+
+.contact-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    color: var(--color-secondary);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.contact-eyebrow::before {
+    content: "";
+    width: 30px;
+    height: 2px;
+    background: var(--color-secondary);
+    border-radius: 20px;
+}
+
+
+.contact-title {
+    margin: 0 0 18px;
+    color: var(--text-primary);
+    font-size: clamp(38px, 4vw, 54px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+}
+
+
+.contact-description {
+    max-width: 470px;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   BOOKING HELP CARD
+   ========================================================= */
+
+.booking-help-card {
+    margin-top: 38px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(229, 9, 20, 0.14),
+            rgba(229, 9, 20, 0.04)
+        );
+    border: 1px solid var(--border);
+    border-radius: var(--br-sm-2);
+    overflow: hidden;
+}
+
+
+.booking-help-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+
+.booking-help-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--icon-bg);
+    color: var(--icon-color);
+
+    border-radius: 10px;
+
+    font-size: 20px;
+}
+
+
+.booking-help-text h3 {
+    margin: 0 0 7px;
+
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+
+.booking-help-text p {
+    margin: 0;
+
+    max-width: 270px;
+
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+
+.booking-help-text strong {
+    color: var(--text-primary);
+}
+
+
+/* =========================================================
+   QR CODE
+   ========================================================= */
+
+.booking-qr {
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+}
+
+
+.booking-qr img {
+    width: 92px;
+    height: 92px;
+
+    padding: 7px;
+
+    background: #ffffff;
+    border-radius: 8px;
+
+    object-fit: contain;
+}
+
+
+.booking-qr span {
+    color: var(--text-secondary);
+    font-size: 10px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   OTHER CONTACT METHODS
+   ========================================================= */
+
+.other-contact {
+    margin-top: 38px;
+}
+
+
+.other-contact-title {
+    margin: 0 0 18px;
+
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+.contact-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    color: var(--text-primary);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.contact-method i {
+    color: var(--color-secondary);
+    font-size: 17px;
+}
+
+
+.contact-method a {
+    color: inherit;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+
+.contact-method a:hover {
+    color: var(--color-secondary);
+}
+
+
+/* =========================================================
+   COMPANY INFORMATION
+   ========================================================= */
+
+.company-info {
+    margin-top: 30px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border-1);
+}
+
+
+.company-info h4 {
+    margin: 0 0 10px;
+
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.company-info p {
+    max-width: 480px;
+
+    margin: 0;
+
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   CONTACT FORM CARD
+   ========================================================= */
+
+.contact-form-card {
+    margin-top: 40px;
+    padding: 38px  40px 32px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--br-sm-2);
+    box-shadow: var(--box-shadow-1);
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.contact-form-title {
+    margin: 0 0 7px;
+    color: var(--text-primary);
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+
+.contact-form-subtitle {
+    margin: 0 0 25px;
+
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   CATEGORY SECTION
+   ========================================================= */
+
+.form-question {
+    margin-bottom: 10px;
+
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.form-hint {
+    margin: 0 0 12px;
+
+    color: var(--text-secondary);
+    font-size: 11px;
+}
+
+
+.support-categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+.support-category {
+    min-height: 76px;
+
+    padding: 12px 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    background: var(--filter-bg);
+
+    border: 1px solid var(--filter-border);
+    border-radius: 9px;
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.support-category i {
+    font-size: 18px;
+}
+
+
+.support-category span {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+.support-category:hover {
+    background: var(--filter-bg-hover);
+    border-color: rgba(229, 9, 20, 0.3);
+
+    color: var(--text-primary);
+
+    transform: translateY(-2px);
+}
+
+
+.support-category.active {
+    background: var(--red-opacity);
+    border-color: var(--color-secondary);
+
+    color: var(--color-secondary);
+}
+
+
+/* =========================================================
+   FORM DIVIDER
+   ========================================================= */
+
+.form-divider {
+    height: 1px;
+
+    margin: 0 0 22px;
+
+    background: var(--card-border);
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+
+.form-label {
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.form-input,
+.form-textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    background: var(--filter-bg);
+
+    border: 1px solid var(--filter-border);
+    border-radius: 8px;
+
+    outline: none;
+
+    color: var(--text-primary);
+
+    font-family: var(--font);
+    font-size: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.form-input {
+    height: 48px;
+}
+
+
+.form-textarea {
+    min-height: 125px;
+
+    resize: vertical;
+}
+
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.75;
+}
+
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: var(--color-secondary);
+
+    box-shadow:
+        0 0 0 3px rgba(229, 9, 20, 0.08);
+}
+
+
+/* =========================================================
+   ERROR STATE
+   ========================================================= */
+
+.form-input.error,
+.form-textarea.error {
+    border-color: var(--color-secondary);
+}
+
+
+.field-error {
+    display: none;
+
+    color: var(--color-secondary);
+    font-size: 10px;
+}
+
+
+.field-error.show {
+    display: block;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+   ========================================================= */
+
+.contact-submit {
+    width: 100%;
+    height: 48px;
+
+    margin-top: 2px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: var(--color-secondary);
+    color: var(--color-white);
+
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.contact-submit:hover {
+    background: #c70812;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(229, 9, 20, 0.22);
+}
+
+
+.contact-submit:active {
+    transform: translateY(0);
+}
+
+
+.contact-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================================
+   FORM FOOTNOTE
+   ========================================================= */
+
+.form-footnote {
+    margin: 13px 0 0;
+
+    color: var(--text-secondary);
+    font-size: 10px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+   ========================================================= */
+
+.contact-success {
+    display: none;
+
+    margin-top: 15px;
+    padding: 12px 15px;
+
+    background: rgba(34, 197, 94, 0.08);
+
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 8px;
+
+    color: #22c55e;
+
+    font-size: 12px;
+    text-align: center;
+}
+
+
+.contact-success.show {
+    display: block;
+}
+
+
+/* =========================================================
+   CONTACT FOOTER AREA
+   ========================================================= */
+
+.contact-footer {
+    border-top: 1px solid var(--card-border);
+}
+
+
+/* =========================================================
+   LIGHT MODE REFINEMENT
+   ========================================================= */
+
+.light-mode .booking-help-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(229, 9, 20, 0.07),
+            rgba(255, 255, 255, 0.6)
+        );
+}
+
+
+.light-mode .contact-form-card {
+    box-shadow: var(--box-shadow-1);
+}
+
+
+.light-mode .support-category.active {
+    background: rgba(229, 9, 20, 0.07);
+}
+
+
+.light-mode .form-input,
+.light-mode .form-textarea {
+    background: #ffffff;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.contact-footer {
+    width: 100%;
+    padding: 25px 20px;
+    text-align: center;
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-1);
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+
+.contact-footer p {
+    margin: 0 0 10px;
+    font-size: 12px;
+    color: var(--text-secondary);
+
+}
+
+
+.contact-footer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+
+}
+
+
+.contact-footer a {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+}
+.contact-footer a:hover {
+    color: var(--color-secondary);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+
+        padding: 55px 0 70px;
+    }
+
+    .contact-intro {
+        max-width: 700px;
+    }
+
+    .contact-description {
+        max-width: 650px;
+    }
+
+    .contact-form-card {
+        max-width: 700px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .contact-wrapper {
+        width: min(100% - 28px, 1180px);
+
+        padding: 40px 0 55px;
+    }
+
+
+    .contact-title {
+        font-size: 36px;
+        letter-spacing: -1px;
+    }
+
+
+    .contact-description {
+        font-size: 14px;
+    }
+
+
+    .booking-help-card {
+        padding: 18px;
+
+        align-items: flex-start;
+    }
+
+
+    .booking-help-content {
+        gap: 12px;
+    }
+
+
+    .booking-help-icon {
+        width: 42px;
+        height: 42px;
+
+        font-size: 17px;
+    }
+
+
+    .booking-help-text p {
+        font-size: 11px;
+    }
+
+
+    .booking-qr img {
+        width: 70px;
+        height: 70px;
+    }
+
+
+    .contact-methods {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+
+    .contact-form-card {
+        padding: 25px 18px;
+    }
+
+
+    .contact-form-title {
+        font-size: 25px;
+    }
+
+
+    .support-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 19px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .contact-title {
+        font-size: 31px;
+    }
+
+
+    .booking-help-card {
+        flex-direction: column;
+    }
+
+
+    .booking-qr {
+        align-self: flex-end;
+    }
+
+
+    .contact-form-card {
+        padding: 22px 15px;
+    }
+}

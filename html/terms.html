@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CineGo Terms of Service - Terms and conditions for using the CineGo movie booking platform.">
+    <title>Terms of Service | CineGo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&icon_names=fastfood" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/a93d142cd4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/terms.css">
+</head>
+
+<body>
+ <nav class="navbar custom-nav navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fs-1" href="#"><i class="fa-solid fa-masks-theater"></i> CineGo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../html/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/movies.html">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/cinemas.html">Theaters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/ticket.html">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/offers.html">Offers</a>
+                    </li>
+                </ul>
+                <div class="search-container me-2">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search movies, theatres..." class="form-control" id="searchInput">
+                </div>
+                <div class="d-flex align-items-center gap-3 loc">
+
+                    <div class="city-dropdown">
+
+                        <button class="city-btn" id="cityBtn">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span id="selectedCity">Chennai</span>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+                        <div class="city-menu" id="cityMenu">
+
+                            <div class="city-search">
+
+                                <i class="fa-solid fa-magnifying-glass"></i>
+
+                                <input type="text" id="citySearch" placeholder="Search for your city">
+
+                            </div>
+
+                            <div class="city-list">
+
+                                <div class="city-item active" data-city="Chennai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Chennai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Bengaluru">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Bengaluru</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Hyderabad">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Hyderabad</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Mumbai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Mumbai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Delhi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Delhi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Kochi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Kochi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Coimbatore">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Coimbatore</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Madurai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Madurai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <button class="btn btn-danger rounded-pill " id="profileIcon">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+
+
+                    <div class="theme-btn">
+                        <i class="fas fa-adjust"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <!-- =========================
+             PAGE HERO
+    ========================== -->
+    <section class="terms-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-file-contract"></i>
+                Legal
+            </div>
+
+            <h1>Terms of Service</h1>
+
+            <p>
+                Please read these terms carefully before using CineGo,
+                browsing movies, or booking your next cinema experience.
+            </p>
+
+            <div class="last-updated">
+                <i class="fa-regular fa-calendar"></i>
+                Last Updated: 21 August 2026
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================
+             MAIN CONTENT
+    ========================== -->
+    <main class="terms-wrapper">
+        <!-- SIDEBAR -->
+        <aside class="terms-sidebar">
+
+            <div class="sidebar-card">
+                <div class="sidebar-title">
+                    <i class="fa-solid fa-list"></i>
+                    Contents
+                </div>
+
+                <nav class="contents-nav">
+                    <a href="#about">About CineGo</a>
+                    <a href="#acceptance">Acceptance</a>
+                    <a href="#account">Account</a>
+                    <a href="#listings">Movie Listings</a>
+                    <a href="#booking">Booking</a>
+                    <a href="#confirmation">Confirmation</a>
+                    <a href="#seats">Seat Selection</a>
+                    <a href="#pricing">Prices & Fees</a>
+                    <a href="#payment">Payment</a>
+                    <a href="#refunds">Cancellation & Refunds</a>
+                    <a href="#offers">Offers & Coupons</a>
+                    <a href="#conduct">User Conduct</a>
+                    <a href="#privacy">Privacy</a>
+                    <a href="#support">Customer Support</a>
+                    <a href="#availability">Platform Availability</a>
+                    <a href="#liability">Liability</a>
+                    <a href="#changes">Changes to Terms</a>
+                    <a href="#contact">Contact Us</a>
+                </nav>
+            </div>
+
+        </aside>
+
+
+        <!-- TERMS CONTENT -->
+        <article class="terms-content">
+
+            <div class="welcome-card">
+                <div class="welcome-icon">
+                    <i class="fa-solid fa-ticket"></i>
+                </div>
+
+                <div>
+                    <h2>Welcome to CineGo</h2>
+                    <p>
+                        These Terms of Service govern your access to and use
+                        of the CineGo website, mobile applications, software,
+                        and related movie-ticketing services.
+                    </p>
+                </div>
+            </div>
+
+
+            <section class="terms-section" id="about">
+                <div class="section-number">01</div>
+                <div class="section-body">
+                    <h2>About CineGo</h2>
+
+                    <p>
+                        CineGo is an online movie-ticketing platform that enables
+                        users to discover movies, cinemas, showtimes, seat
+                        availability, ticket prices, offers, and related services
+                        and, where available, purchase movie tickets from
+                        participating cinema and theatre partners.
+                    </p>
+
+                    <p>
+                        CineGo may act as a technology and ticketing intermediary
+                        between users and participating cinemas, theatres,
+                        distributors, exhibitors, and other service providers
+                        (“Cinema Partners”).
+                    </p>
+
+                    <div class="info-box">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <p>
+                            CineGo does not own or operate every cinema listed on
+                            the Platform. Showtimes, seating, ticket inventory,
+                            admission rules, pricing, cancellation policies,
+                            and other cinema-related matters may be determined
+                            by the relevant Cinema Partner.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="acceptance">
+                <div class="section-number">02</div>
+                <div class="section-body">
+                    <h2>Acceptance of Terms</h2>
+
+                    <p>By using CineGo, you agree to:</p>
+
+                    <ol>
+                        <li>Comply with these Terms.</li>
+                        <li>Comply with applicable Indian laws and regulations.</li>
+                        <li>Provide accurate information when requested.</li>
+                        <li>Use the Platform only for lawful and personal purposes.</li>
+                        <li>Comply with the rules and policies of the relevant Cinema Partner.</li>
+                    </ol>
+
+                    <p>
+                        These Terms should be read together with our Privacy Policy
+                        and any specific terms, conditions, cancellation policies,
+                        promotional terms, or other policies displayed during a
+                        Booking.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section">
+                <div class="section-number">03</div>
+                <div class="section-body">
+                    <h2>Eligibility</h2>
+
+                    <p>
+                        You must be legally capable of entering into a binding
+                        contract under applicable law to use CineGo for transactions.
+                    </p>
+
+                    <p>
+                        If you are under 18 years of age, you may use CineGo only
+                        with the involvement and supervision of your parent or legal
+                        guardian where required by law.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="account">
+                <div class="section-number">04</div>
+                <div class="section-body">
+                    <h2>CineGo Account</h2>
+
+                    <p>Certain features of CineGo may require you to create an account.</p>
+
+                    <ul>
+                        <li>Provide accurate and current information.</li>
+                        <li>Maintain the confidentiality of your login credentials.</li>
+                        <li>Keep your registered mobile number and email address updated.</li>
+                        <li>Immediately notify CineGo if you believe your account has been compromised.</li>
+                        <li>Remain responsible for activity carried out through your account unless caused by CineGo's
+                            proven fault.</li>
+                    </ul>
+
+                    <p>
+                        You must not create an account using another person's identity
+                        or information without appropriate authorisation.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="listings">
+                <div class="section-number">05</div>
+                <div class="section-body">
+                    <h2>Movie Listings and Information</h2>
+
+                    <p>
+                        CineGo attempts to display movie and cinema information
+                        accurately and promptly. However, information may be supplied
+                        or updated by Cinema Partners, distributors, exhibitors,
+                        or other third parties.
+                    </p>
+
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <i class="fa-solid fa-film"></i>
+                            <span>Movie Title</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <i class="fa-solid fa-language"></i>
+                            <span>Language</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Duration</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Cinema Location</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <i class="fa-solid fa-chair"></i>
+                            <span>Seat Availability</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <i class="fa-solid fa-tag"></i>
+                            <span>Offers & Promotions</span>
+                        </div>
+                    </div>
+
+                    <p>
+                        Showtimes, seat availability, prices, and other details may
+                        change before a Booking is completed.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section">
+                <div class="section-number">06</div>
+                <div class="section-body">
+                    <h2>Movie Certification and Age Restrictions</h2>
+
+                    <p>
+                        Users are responsible for checking the applicable
+                        certification and admission restrictions before purchasing
+                        a Movie Ticket.
+                    </p>
+
+                    <p>
+                        Cinema Partners may request proof of age or identity at
+                        the cinema. CineGo will not be responsible for denial of
+                        admission where the user does not satisfy applicable
+                        requirements.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="booking">
+                <div class="section-number">07</div>
+                <div class="section-body">
+                    <h2>Booking Process</h2>
+
+                    <div class="booking-flow">
+                        <div class="flow-step">
+                            <span>1</span>
+                            <div>
+                                <strong>Select Movie</strong>
+                                <small>Choose your movie and language.</small>
+                            </div>
+                        </div>
+
+                        <div class="flow-line"></div>
+
+                        <div class="flow-step">
+                            <span>2</span>
+                            <div>
+                                <strong>Select Cinema</strong>
+                                <small>Choose a theatre, date and showtime.</small>
+                            </div>
+                        </div>
+
+                        <div class="flow-line"></div>
+
+                        <div class="flow-step">
+                            <span>3</span>
+                            <div>
+                                <strong>Select Seats</strong>
+                                <small>Choose available seats.</small>
+                            </div>
+                        </div>
+
+                        <div class="flow-line"></div>
+
+                        <div class="flow-step">
+                            <span>4</span>
+                            <div>
+                                <strong>Make Payment</strong>
+                                <small>Complete the payment securely.</small>
+                            </div>
+                        </div>
+
+                        <div class="flow-line"></div>
+
+                        <div class="flow-step">
+                            <span>5</span>
+                            <div>
+                                <strong>Get Ticket</strong>
+                                <small>Receive your Booking ID and confirmation.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="success-box">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p>
+                            A Booking is considered successful only after the
+                            required payment has been successfully processed and
+                            CineGo or the applicable Cinema Partner generates a
+                            valid Booking ID or confirmation.
+                        </p>
+                    </div>
+
+                    <p>
+                        Selecting seats or proceeding to checkout does not guarantee
+                        that those seats will remain available until payment is
+                        completed.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="confirmation">
+                <div class="section-number">08</div>
+                <div class="section-body">
+                    <h2>Booking Confirmation</h2>
+
+                    <p>
+                        After a successful Booking, CineGo may send confirmation
+                        through one or more of the following:
+                    </p>
+
+                    <div class="communication-list">
+                        <span><i class="fa-regular fa-envelope"></i> Email</span>
+                        <span><i class="fa-regular fa-comment"></i> SMS</span>
+                        <span><i class="fa-brands fa-whatsapp"></i> WhatsApp</span>
+                        <span><i class="fa-solid fa-bell"></i> Push Notification</span>
+                        <span><i class="fa-solid fa-ticket"></i> CineGo Account</span>
+                    </div>
+
+                    <p>
+                        You should verify the Booking details immediately after
+                        receiving confirmation.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section">
+                <div class="section-number">09</div>
+                <div class="section-body">
+                    <h2>Booking ID and QR Code</h2>
+
+                    <p>
+                        A Booking ID, QR code, ticket number, or other authentication
+                        credential associated with a Movie Ticket must be kept secure.
+                    </p>
+
+                    <div class="warning-box">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <p>
+                            Do not post your ticket QR code or Booking ID publicly.
+                            Anyone possessing valid booking credentials may potentially
+                            be able to use the associated ticket, subject to the
+                            Cinema Partner's verification procedures.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="seats">
+                <div class="section-number">10</div>
+                <div class="section-body">
+                    <h2>Seat Selection</h2>
+
+                    <p>
+                        Where seat selection is available, the seat displayed during
+                        the Booking process is subject to availability and confirmation.
+                    </p>
+
+                    <p>
+                        Seat maps displayed on CineGo are for guidance and may not
+                        perfectly represent the physical dimensions or layout of
+                        the cinema.
+                    </p>
+
+                    <p>
+                        The final admission and seating process remains subject to
+                        the Cinema Partner's policies.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="pricing">
+                <div class="section-number">11</div>
+                <div class="section-body">
+                    <h2>Ticket Prices and Fees</h2>
+
+                    <p>The amount payable for a Booking may include:</p>
+
+                    <ul>
+                        <li>Base ticket price</li>
+                        <li>Applicable taxes</li>
+                        <li>Convenience / platform fees</li>
+                        <li>Internet handling or booking fees</li>
+                        <li>3D or other applicable charges</li>
+                        <li>Food and beverage charges</li>
+                        <li>Payment or service charges</li>
+                        <li>Other charges disclosed during checkout</li>
+                    </ul>
+
+                    <div class="price-box">
+                        <i class="fa-solid fa-receipt"></i>
+                        <div>
+                            <strong>Final Amount</strong>
+                            <p>
+                                The final amount payable will always be displayed
+                                before payment is submitted.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="payment">
+                <div class="section-number">12</div>
+                <div class="section-body">
+                    <h2>Payment</h2>
+
+                    <p>CineGo may support payment methods such as:</p>
+
+                    <div class="payment-methods">
+                        <span><i class="fa-brands fa-google-pay"></i> UPI</span>
+                        <span><i class="fa-regular fa-credit-card"></i> Credit Card</span>
+                        <span><i class="fa-regular fa-credit-card"></i> Debit Card</span>
+                        <span><i class="fa-solid fa-building-columns"></i> Net Banking</span>
+                        <span><i class="fa-solid fa-wallet"></i> Wallets</span>
+                        <span><i class="fa-solid fa-lock"></i> Payment Gateway</span>
+                    </div>
+
+                    <p>
+                        Payments may be processed through third-party payment
+                        service providers. You agree to provide accurate payment
+                        information and confirm that you are authorised to use
+                        the selected payment method.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section">
+                <div class="section-number">13</div>
+                <div class="section-body">
+                    <h2>Failed, Pending, or Duplicate Payments</h2>
+
+                    <p>
+                        Sometimes a payment may be debited from your account while
+                        the Booking status remains pending or unsuccessful.
+                    </p>
+
+                    <div class="warning-box">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <p>
+                            Do not immediately make another payment without first
+                            checking your Booking status.
+                        </p>
+                    </div>
+
+                    <p>
+                        Where a payment is successfully received but a valid Booking
+                        is not generated, CineGo will take reasonable steps to verify
+                        the transaction and, where a refund is due, initiate the
+                        refund to the original payment method or another permitted
+                        method.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="refunds">
+                <div class="section-number">14</div>
+                <div class="section-body">
+                    <h2>Cancellation, Refunds, and Exchanges</h2>
+
+                    <p>
+                        Movie-ticket cancellation, modification, exchange, and
+                        refund availability may depend on the policy applicable
+                        to the relevant Cinema Partner, movie, show, and Booking.
+                    </p>
+
+                    <div class="policy-grid">
+                        <div>
+                            <i class="fa-solid fa-ban"></i>
+                            <strong>Cancellation</strong>
+                            <p>May depend on the applicable booking policy.</p>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-money-bill-transfer"></i>
+                            <strong>Refund</strong>
+                            <p>Processed where the applicable policy permits.</p>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-ticket"></i>
+                            <strong>Exchange</strong>
+                            <p>May not be available after confirmation.</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        Before completing your purchase, review the cancellation
+                        and refund information displayed on the Platform.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="offers">
+                <div class="section-number">15</div>
+                <div class="section-body">
+                    <h2>Offers, Coupons, Cashback and Promotions</h2>
+
+                    <p>
+                        CineGo may provide promotional codes, discounts, cashback,
+                        rewards, coupons, or other promotional benefits.
+                    </p>
+
+                    <p>Each promotion may have additional terms, including:</p>
+
+                    <div class="offer-conditions">
+                        <span><i class="fa-solid fa-user-check"></i> Eligibility</span>
+                        <span><i class="fa-solid fa-cart-shopping"></i> Minimum Value</span>
+                        <span><i class="fa-solid fa-percent"></i> Maximum Discount</span>
+                        <span><i class="fa-regular fa-calendar"></i> Validity Period</span>
+                        <span><i class="fa-solid fa-building"></i> Applicable Cinemas</span>
+                        <span><i class="fa-solid fa-credit-card"></i> Payment Method</span>
+                    </div>
+
+                    <p>
+                        Unless expressly stated otherwise, promotions cannot be
+                        combined. CineGo may cancel or refuse promotional benefits
+                        where we reasonably believe that a promotion has been
+                        obtained through fraud, abuse, technical exploitation,
+                        multiple accounts, or violation of applicable promotional
+                        terms.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="conduct">
+                <div class="section-number">16</div>
+                <div class="section-body">
+                    <h2>Personal Use, Ticket Resale and User Conduct</h2>
+
+                    <p>You must not:</p>
+
+                    <ul class="danger-list">
+                        <li>Commercially resell tickets without appropriate authorisation.</li>
+                        <li>Use automated systems to purchase tickets.</li>
+                        <li>Create multiple accounts to bypass booking limits.</li>
+                        <li>Manipulate ticket availability.</li>
+                        <li>Use bots or scripts.</li>
+                        <li>Conduct fraudulent transactions.</li>
+                        <li>Attempt to obtain unauthorised access.</li>
+                        <li>Upload malicious software.</li>
+                        <li>Abuse promotional offers.</li>
+                        <li>Attempt to circumvent Platform restrictions.</li>
+                    </ul>
+
+                    <p>
+                        CineGo may cancel bookings and restrict accounts involved
+                        in suspected fraudulent or abusive activity, subject to
+                        applicable law.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="privacy">
+                <div class="section-number">17</div>
+                <div class="section-body">
+                    <h2>Privacy and Personal Information</h2>
+
+                    <p>
+                        CineGo may collect and process personal information required
+                        to provide the Platform and its services.
+                    </p>
+
+                    <div class="data-grid">
+                        <span><i class="fa-solid fa-user"></i> Name</span>
+                        <span><i class="fa-solid fa-phone"></i> Mobile Number</span>
+                        <span><i class="fa-solid fa-envelope"></i> Email</span>
+                        <span><i class="fa-solid fa-ticket"></i> Booking Information</span>
+                        <span><i class="fa-solid fa-credit-card"></i> Transaction Information</span>
+                        <span><i class="fa-solid fa-mobile-screen"></i> Device Information</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Location, where enabled</span>
+                        <span><i class="fa-solid fa-headset"></i> Support Communications</span>
+                    </div>
+
+                    <p>
+                        CineGo's collection, use, storage, sharing, retention,
+                        and protection of personal information are governed by
+                        the CineGo Privacy Policy and applicable data-protection
+                        laws.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section">
+                <div class="section-number">18</div>
+                <div class="section-body">
+                    <h2>Electronic Communications</h2>
+
+                    <p>
+                        By using CineGo and providing your contact details, you may
+                        receive communications relating to account activity,
+                        Booking confirmations, payment status, cancellations,
+                        refunds, customer support, security alerts, and important
+                        service announcements.
+                    </p>
+
+                    <p>
+                        Where permitted by applicable law, you may also receive
+                        promotional communications. You may opt out of promotional
+                        communications using available unsubscribe or notification
+                        controls.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="support">
+                <div class="section-number">19</div>
+                <div class="section-body">
+                    <h2>Customer Support</h2>
+
+                    <p>
+                        If you experience a problem with a Booking, payment,
+                        refund, or other CineGo service, contact CineGo through
+                        the support channels displayed on the Platform.
+                    </p>
+
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+
+                        <div>
+                            <h3>Need Help?</h3>
+                            <p>
+                                Keep your Booking ID, registered mobile number,
+                                email address, payment reference, and relevant
+                                transaction details ready when contacting support.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="availability">
+                <div class="section-number">20</div>
+                <div class="section-body">
+                    <h2>Availability of the Platform</h2>
+
+                    <p>
+                        CineGo aims to keep the Platform available and reliable
+                        but does not guarantee uninterrupted access.
+                    </p>
+
+                    <p>The Platform may occasionally be unavailable because of:</p>
+
+                    <ul>
+                        <li>Maintenance</li>
+                        <li>Upgrades</li>
+                        <li>Technical failures</li>
+                        <li>Internet outages</li>
+                        <li>Cyber incidents</li>
+                        <li>Payment-provider failures</li>
+                        <li>Cinema-system failures</li>
+                        <li>Telecommunications failures</li>
+                        <li>Circumstances outside CineGo's reasonable control</li>
+                    </ul>
+                </div>
+            </section>
+
+
+            <section class="terms-section">
+                <div class="section-number">21</div>
+                <div class="section-body">
+                    <h2>Third-Party Services</h2>
+
+                    <p>
+                        CineGo may integrate with third-party services including
+                        payment gateways, SMS providers, email providers,
+                        messaging providers, analytics providers, cinema
+                        ticketing systems, cloud infrastructure providers,
+                        and other technology or service providers.
+                    </p>
+
+                    <p>
+                        Your use of certain third-party services may be subject
+                        to their respective terms and privacy policies.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="liability">
+                <div class="section-number">22</div>
+                <div class="section-body">
+                    <h2>Disclaimer and Limitation of Liability</h2>
+
+                    <p>
+                        To the maximum extent permitted by applicable law,
+                        CineGo provides the Platform and third-party information
+                        on an “as available” basis.
+                    </p>
+
+                    <p>CineGo does not guarantee that:</p>
+
+                    <ul>
+                        <li>Every movie listing will always be available.</li>
+                        <li>Every showtime will remain unchanged.</li>
+                        <li>Every seat displayed will remain available.</li>
+                        <li>Cinema-provided information will always be error-free.</li>
+                        <li>The Platform will always be uninterrupted.</li>
+                        <li>Every third-party service will operate without failure.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <p>
+                            Nothing in these Terms excludes or limits any consumer
+                            rights or statutory protections that cannot lawfully
+                            be excluded.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="terms-section">
+                <div class="section-number">23</div>
+                <div class="section-body">
+                    <h2>Cinema Partner Responsibility</h2>
+
+                    <p>
+                        The relevant Cinema Partner is responsible for matters
+                        relating to the physical cinema and movie screening,
+                        including screening the movie, premises, seating,
+                        admission, food and beverage fulfilment, cinema staff,
+                        safety, security, cinema-specific rules, and show
+                        cancellation or rescheduling.
+                    </p>
+
+                    <p>
+                        CineGo will provide reasonable assistance with issues
+                        relating to Bookings made through the Platform.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section">
+                <div class="section-number">24</div>
+                <div class="section-body">
+                    <h2>Intellectual Property</h2>
+
+                    <p>
+                        The Platform and its original content, software, design,
+                        graphics, interfaces, trademarks, logos, compilation,
+                        and other materials are owned by or licensed to CineGo
+                        or its licensors.
+                    </p>
+
+                    <p>Except as expressly permitted, you must not:</p>
+
+                    <ul>
+                        <li>Copy or reproduce the Platform.</li>
+                        <li>Scrape or systematically collect Platform data.</li>
+                        <li>Reverse engineer or decompile the Platform.</li>
+                        <li>Create derivative works.</li>
+                        <li>Sell or commercially exploit Platform content.</li>
+                        <li>Remove copyright or trademark notices.</li>
+                        <li>Use CineGo trademarks without permission.</li>
+                        <li>Interfere with Platform operation or security.</li>
+                    </ul>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="changes">
+                <div class="section-number">25</div>
+                <div class="section-body">
+                    <h2>Changes to These Terms</h2>
+
+                    <p>
+                        CineGo may update these Terms from time to time.
+                        Updated Terms will be published on the Platform with
+                        a revised “Last Updated” date.
+                    </p>
+
+                    <p>
+                        Where required by applicable law, material changes will
+                        be communicated to users through appropriate means.
+                    </p>
+
+                    <div class="date-card">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        <div>
+                            <strong>Current Version</strong>
+                            <span>21 August 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="terms-section">
+                <div class="section-number">26</div>
+                <div class="section-body">
+                    <h2>Governing Law</h2>
+
+                    <p>
+                        These Terms shall be governed by the laws of India.
+                    </p>
+
+                    <p>
+                        Subject to applicable consumer-protection laws and the
+                        jurisdiction available to consumers under applicable law,
+                        disputes relating to these Terms shall be subject to the
+                        courts and tribunals having appropriate jurisdiction over
+                        the location applicable to CineGo.
+                    </p>
+
+                    <p>
+                        Nothing in these Terms is intended to prevent a consumer
+                        from exercising any statutory right or remedy available
+                        under applicable Indian law.
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="terms-section" id="contact">
+                <div class="section-number">27</div>
+                <div class="section-body">
+                    <h2>Contact Us</h2>
+
+                    <p>
+                        For questions, complaints, Booking-related assistance,
+                        or other concerns, contact CineGo through the support
+                        channels available on the Platform.
+                    </p>
+
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-building"></i>
+                            <div>
+                                <span>Company</span>
+                                <strong>CineGo</strong>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <span>Support Email</span>
+                                <strong>support@cinego.example</strong>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <span>Support Phone</span>
+                                <strong>Available through CineGo Support</strong>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <span>Country</span>
+                                <strong>India</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="placeholder-note">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <p>
+                            Replace the support email, phone number, legal entity
+                            details, registered address, and grievance officer
+                            information with your actual business details before
+                            publishing this page.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ACKNOWLEDGEMENT -->
+            <section class="acknowledgement">
+                <div class="ack-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div>
+                    <h2>Acknowledgement</h2>
+
+                    <p>
+                        By clicking “I Agree”, creating an account, making a
+                        Booking, or otherwise using CineGo, you confirm that you
+                        have read and understood these Terms of Service and agree
+                        to be bound by them.
+                    </p>
+
+                    <a href="index.html" class="home-btn">
+                        <i class="fa-solid fa-house"></i>
+                        Back to CineGo
+                    </a>
+                </div>
+            </section>
+
+        </article>
+    </main>
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="terms-footer">
+      <p>© 2026 CineGo. All Rights Reserved.</p>
+      <div>
+        <a href="terms.html"> Terms & Conditions </a>
+        <a href="./privacy.html"> Privacy Policy </a>
+        <a href="contact.html"> Contact Us </a>
+      </div>
+    </footer>
+    <!-- Popup -->
+    <div class="auth-popup" id="authPopup">
+        <div class="auth-card">
+            <button class="close-btn" onclick="closeAuth()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="auth-header">
+                <h2>CineGo</h2>
+                <p>Welcome back. Sign in to continue.</p>
+            </div>
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="showLogin()" type="button">
+                    Sign In
+                </button>
+
+                <button class="tab-btn" onclick="showSignup()" type="button">
+                    Sign Up
+                </button>
+            </div>
+            <div class="auth-body">
+                <!-- Login -->
+                <form class="login-form">
+
+                    <input type="email" placeholder="Email Address" class="auth-input" autocomplete="email">
+
+                    <input type="password" placeholder="Password" class="auth-input" autocomplete="current-password">
+
+                    <div class="auth-links">
+                        <label>
+                            <input type="checkbox" id="rememberMe">
+                            Remember me
+                        </label>
+
+                        <a href="#" id="forgotPassword">Forgot?</a>
+                    </div>
+
+                    <button type="submit" class="auth-btn">
+                        Continue
+                    </button>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="button" class="google-btn">
+                        <i class="fa-brands fa-google"></i>
+                        Continue with Google
+                    </button>
+
+                </form>
+                <!-- Signup -->
+                <form class="signup-form d-none">
+
+                    <input type="text" placeholder="Full Name" class="auth-input">
+
+                    <input type="email" placeholder="Email Address" class="auth-input" autocomplete="email">
+
+                    <input type="password" placeholder="Password" class="auth-input" autocomplete="new-password">
+
+                    <input type="password" placeholder="Confirm Password" class="auth-input"
+                        autocomplete="confirm-password">
+
+                    <button type="submit" class="auth-btn">
+                        Create Account
+                    </button>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="button" class="google-btn">
+                        <i class="fa-brands fa-google"></i>
+                        Continue with Google
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+   <!-- ================= Profile Drawer ================= -->
+    <div class="profile-overlay" id="profileOverlay">
+
+        <div class="profile-sidebar">
+
+            <div class="profile-header">
+
+                <h3>My Profile</h3>
+
+                <button class="profile-close" id="closeProfile">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+            <div class="profile-user">
+                <div class="profile-avatar" id="profileAvatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <h4 id="profileName">Guest</h4>
+                    <p id="profileEmail">Please Login</p>
+                </div>
+
+            </div>
+
+            <div class="profile-menu">
+
+                <a href="./ticket.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    My Bookings
+                </a>
+
+                <a href="./contact.html">
+                    <i class="fa-brands fa-teamspeak"></i>
+                    chat With Us
+                </a>
+
+                <a href="terms.html">
+                    <i class="fa-solid fa-file-contract"></i>
+                    Terms & Conditions
+                </a>
+
+                <a href="privacy.html">
+                    <i class="fa-solid fa-file-shield"></i>
+                    Privacy Policy
+                </a>
+            </div>
+            <button class="logout-btn" id="loginBtn" onclick="showAuth()" style="display:none;">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </button>
+
+            <button class="logout-btn" id="logoutBtn" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/city.js"></script>
+    <script src="../js/profile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie-Ticket_Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&icon_names=fastfood" />
+    <script src="https://kit.fontawesome.com/a93d142cd4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cinemas.css">
+</head>
+
+<body>
+    <nav class="navbar custom-nav navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fs-1" href="#"><i class="fa-solid fa-masks-theater"></i> CineGo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/movies.html">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../html/cinemas.html">Theaters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/ticket.html">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/offers.html">Offers</a>
+                    </li>
+                </ul>
+                <div class="search-container me-2">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search movies, theatres..." class="form-control" id="searchInput">
+                </div>
+                <div class="d-flex align-items-center gap-3 loc">
+
+                    <div class="city-dropdown">
+
+                        <button class="city-btn" id="cityBtn">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span id="selectedCity">Chennai</span>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+                        <div class="city-menu" id="cityMenu">
+
+                            <div class="city-search">
+
+                                <i class="fa-solid fa-magnifying-glass"></i>
+
+                                <input type="text" id="citySearch" placeholder="Search for your city">
+
+                            </div>
+
+                            <div class="city-list">
+
+                                <div class="city-item active" data-city="Chennai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Chennai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Bengaluru">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Bengaluru</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Hyderabad">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Hyderabad</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Mumbai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Mumbai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Delhi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Delhi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Kochi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Kochi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Coimbatore">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Coimbatore</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Madurai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Madurai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <button class="btn btn-danger rounded-pill " id="profileIcon">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+
+
+                    <div class="theme-btn">
+                        <i class="fas fa-adjust"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+<!-- =========================================================
+                    CINEMA HERO
+========================================================= -->
+
+<section class="cinema-hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                PREMIUM CINEMA EXPERIENCE
+            </span>
+
+            <h1>
+                Find Your <span class="color_change">Favourite </span> Cinema
+            </h1>
+
+            <p>
+                Explore luxury theatres, IMAX screens, Dolby Atmos,
+                recliner seating and premium experiences near you.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#cinemaSearch"
+                   class="btn btn-danger text-white explore-btn">
+                    Explore Cinemas
+                </a>
+
+                <a href="./movies.html"
+                   class="btn btn-outline-light text-white movie-btn">
+                    View Movies
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+                    CINEMA SEARCH
+========================================================= -->
+
+<section class="cinema-search-section" id="cinemaSearch">
+
+    <div class="container">
+
+        <div class="search-card">
+
+            <div class="row g-3 align-items-end">
+
+                <!-- LOCATION -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <label for="cinemaLocation">
+                        Location
+                    </label>
+
+                    <select
+                        id="cinemaLocation"
+                        class="form-select">
+
+                        <option value="chennai">
+                            Chennai
+                        </option>
+
+                        <option value="coimbatore">
+                            Coimbatore
+                        </option>
+
+                        <option value="madurai">
+                            Madurai
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- CINEMA -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <label for="cinemaSearchInput">
+                        Cinema
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cinemaSearchInput"
+                        class="form-control"
+                        placeholder="Search theatre">
+
+                </div>
+
+
+                <!-- EXPERIENCE -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <label for="cinemaExperience">
+                        Experience
+                    </label>
+
+                    <select
+                        id="cinemaExperience"
+                        class="form-select">
+
+                        <option value="all">
+                            All Experiences
+                        </option>
+
+                        <option value="imax">
+                            IMAX
+                        </option>
+
+                        <option value="dolby">
+                            Dolby Atmos
+                        </option>
+
+                        <option value="recliner">
+                            Luxury Recliners
+                        </option>
+
+                        <option value="laser">
+                            Laser Projection
+                        </option>
+
+                        <option value="4dx">
+                            4DX
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- SEARCH BUTTON -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <button
+                        type="button"
+                        class="btn btn-danger w-100 cinema-search-btn">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        Search Cinemas
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+                    FEATURED CINEMAS
+========================================================= -->
+
+<section class="main-cinemas">
+
+    <div class="container">
+
+
+        <!-- SECTION HEADER -->
+
+        <div class="section-title">
+
+            <small>
+                HANDPICKED FOR YOU
+            </small>
+
+            <h1>
+                Featured Premium Venues
+            </h1>
+        </div>
+        <p class="mb-5">
+                Discover IMAX, Dolby Atmos and luxury seating
+                for the ultimate movie experience.
+            </p>
+
+
+        <!-- =================================================
+                        CINEMA CARD 01
+        ================================================== -->
+
+        <div class="cinema-card mb-4">
+
+            <div class="row g-0 align-items-stretch">
+
+                <!-- IMAGE -->
+
+                <div class="col-lg-5">
+
+                    <div class="cinema-image">
+
+                        <img
+                            src="../Assets/Theater_01.png"
+                            class="img-fluid"
+                            alt="Sathyam Cinemas">
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTENT -->
+
+                <div class="col-lg-7">
+
+                    <div class="cinema-content">
+
+                        <div class="cinema-heading">
+
+                            <div>
+
+                                <span class="cinema-label">
+                                    PREMIUM VENUE
+                                </span>
+
+                                <h3>
+                                    Sathyam Cinemas (SPI)
+                                </h3>
+
+                            </div>
+
+                            <span class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                8.7
+                            </span>
+
+                        </div>
+
+
+                        <!-- LOCATION -->
+
+                        <p class="cinema-location">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Royapettah, Chennai
+
+                            <span>
+                                • 2.3 km Away
+                            </span>
+
+                        </p>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <p class="cinema-description">
+                            The heart of Chennai's movie culture.
+                            Experience legendary Sathyam popcorn
+                            and world-class projection in our
+                            flagship screens.
+                        </p>
+
+
+                        <!-- FEATURES -->
+
+                        <div class="specification">
+
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                RDX Projection
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Dolby Atmos
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Premium Seating
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Iconic Popcorn
+                            </span>
+
+                        </div>
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="btn_container">
+
+                            <button
+                                type="button"
+                                class="cinema-primary-btn">
+
+                                View Shows
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="cinema-secondary-btn">
+
+                                Theater Details
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+                        CINEMA CARD 02
+        ================================================== -->
+
+        <div class="cinema-card mb-4">
+
+            <div class="row g-0 align-items-stretch">
+
+                <!-- CONTENT -->
+
+                <div class="col-lg-7 order-2 order-lg-1">
+
+                    <div class="cinema-content">
+
+                        <div class="cinema-heading">
+
+                            <div>
+
+                                <span class="cinema-label">
+                                    LUXURY EXPERIENCE
+                                </span>
+
+                                <h3>
+                                    PVR INOX Grand Mall
+                                </h3>
+
+                            </div>
+                            <span class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                8.5
+                            </span>
+
+                        </div>
+
+
+                        <!-- LOCATION -->
+
+                        <p class="cinema-location">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Velachery, Chennai
+
+                            <span>
+                                • 1.8 km Away
+                            </span>
+
+                        </p>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <p class="cinema-description">
+                            A premium multiplex experience featuring
+                            modern screens, comfortable seating and
+                            immersive sound for every movie lover.
+                        </p>
+
+
+                        <!-- FEATURES -->
+
+                        <div class="specification">
+
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Dolby Atmos
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Laser Projection
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Recliner Seating
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Premium Lounge
+                            </span>
+
+                        </div>
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="btn_container">
+
+                            <button
+                                type="button"
+                                class="cinema-primary-btn">
+
+                                View Shows
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="cinema-secondary-btn">
+
+                                Theater Details
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE -->
+
+                <div class="col-lg-5 order-1 order-lg-2">
+
+                    <div class="cinema-image">
+
+                        <img
+                            src="../Assets/theater_02.png"
+                            class="img-fluid"
+                            alt="PVR INOX Grand Mall">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+    <!-- popular Cinemas -->
+    <section class="main-theater">
+      <div class="section-title container d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <small>AROUND THE CITY</small>
+        <h1>Popular Cinemas</h1>
+    </div>
+    <a href="#"
+       class="text-danger text-decoration-none">
+        View All
+    </a>
+
+</div>
+        <div class="card-group">
+            <div class="container">
+                <div class="cards pt-4">
+                    <div class="theater-card">
+                        <div class="theater-poster">
+                            <img src="../Assets/theater_03.png" alt="Movie">
+                            <span class="premium-badge">
+                                IMAX
+                            </span>
+                            <span class="theater-ratings">
+                                ⭐ 4.7
+                            </span>
+                        </div>
+
+                        <div class="theater-content">
+                            <h5 class="fs-5 text-center">AGS Cinemas T.Nagar</h5>
+
+                            <p class="text-center">
+                                <i class="fa-solid fa-location-dot"></i> No: 24/1, G.N.Chetty Road, TNagar,opp Dr. M.G.R
+                                Educational and Research Institute, Chennai <span class="km">
+                                    <i class="fa-solid fa-circle ms-2"></i> 10.9 km</span>
+                            </p>
+
+                            <div class="experience">
+                                <span>IMAX</span>
+                                <span>Dolby Atmos</span>
+                                <span>Recliner</span>
+                            </div>
+
+                            <div class="amenities">
+                                <div>
+                                    <i class="fa-solid fa-cookie-bite"></i>
+                                    Snacks
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-square-parking"></i>
+                                    Parking
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wifi"></i>
+                                    WiFi
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                    Accessible
+                                </div>
+                            </div>
+
+                            <button class="btn btn-danger w-100">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="theater-card">
+                        <div class="theater-poster">
+                            <img src="https://images.pexels.com/photos/29505262/pexels-photo-29505262.jpeg" alt="Movie">
+                            <span class="premium-badge">
+                                MULTIPLEX
+                            </span>
+                            <span class="theater-ratings">
+                                ⭐ 4.5
+                            </span>
+                        </div>
+
+                        <div class="theater-content">
+                            <h5 class="fs-5 text-center">Sangam Multiplex</h5>
+
+                            <p class="text-center">
+                                <i class="fa-solid fa-location-dot"></i> 870, Poonamallee High Rd, Kilpauk, Chennai<span
+                                    class="km"> <i class="fa-solid fa-circle ms-1"> </i> 15.2 km</span>
+                            </p>
+
+                            <div class="experience">
+                                <span>Dolby Atmos</span>
+                                <span>Laser</span>
+                                <span>Premium</span>
+                            </div>
+
+                            <div class="amenities">
+                                <div>
+                                    <i class="fa-solid fa-cookie-bite"></i>
+                                    Snacks
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-square-parking"></i>
+                                    Parking
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wifi"></i>
+                                    WiFi
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                    Accessible
+                                </div>
+                            </div>
+
+                            <button class="btn btn-danger w-100">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="theater-card">
+                        <div class="theater-poster">
+                            <img src="https://images.pexels.com/photos/3709369/pexels-photo-3709369.jpeg" alt="Movie">
+                            <span class="classic-badge">
+                                CLASSIC
+                            </span>
+                            <span class="theater-ratings">
+                                ⭐ 4.6
+                            </span>
+                        </div>
+
+                        <div class="theater-content">
+                            <h5 class="fs-5 text-center">Vettri Theatres</h5>
+
+                            <p class="text-center">
+                                <i class="fa-solid fa-location-dot"> </i> Grand Southern Trunk Road, Chromepet, Chennai
+                                <span class="km"> <i class="fa-solid fa-circle ms-2"></i> 12.8 km</span>
+                            </p>
+                            <div class="experience">
+                                <span>Dolby Atmos</span>
+                                <span>4K Projection</span>
+                                <span>Recliner</span>
+                            </div>
+                            <div class="amenities">
+                                <div>
+                                    <i class="fa-solid fa-cookie-bite"></i>
+                                    Snacks
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-square-parking"></i>
+                                    Parking
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wifi"></i>
+                                    WiFi
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                    Accessible
+                                </div>
+                            </div>
+
+                            <button class="btn btn-danger w-100">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="theater-card">
+                        <div class="theater-poster">
+                            <img src="https://images.unsplash.com/photo-1668890094751-6986d0ca9dfc?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Movie">
+                            <span class="premium-badge">
+                                PREMIUM
+                            </span>
+                            <span class="theater-ratings">
+                                ⭐ 4.8
+                            </span>
+                        </div>
+
+                        <div class="theater-content">
+                            <h5 class="fs-5 text-center">Rohini Silver Screens</h5>
+
+                            <p class="text-center">
+                                <i class="fa-solid fa-location-dot"> </i> Poonamallee High Rd, Koyambedu,
+                                Chennai <span class="km"> <i class="fa-solid fa-circle ms-2"></i> 15.6 km</span>
+                            </p>
+                            <div class="experience">
+                                <span>Dolby Atmos</span>
+                                <span>Laser</span>
+                                <span>Recliner</span>
+                            </div>
+                            <div class="amenities">
+                                <div>
+                                    <i class="fa-solid fa-cookie-bite"></i>
+                                    Snacks
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-square-parking"></i>
+                                    Parking
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wifi"></i>
+                                    WiFi
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                    Accessible
+                                </div>
+                            </div>
+
+                            <button class="btn btn-danger w-100">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="theater-card">
+                        <div class="theater-poster">
+                            <img src="https://images.unsplash.com/photo-1640127249305-793865c2efe1?q=80&w=1606&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Movie">
+                            <span class="premium-badge">
+                                PREMIUM
+                            </span>
+                            <span class="theater-ratings">
+                                ⭐ 4.7
+                            </span>
+                        </div>
+
+                        <div class="theater-content">
+                            <h5 class="fs-5 text-center">PVR: VR Chennai, Anna Nagar</h5>
+
+                            <p class="text-center">
+                                <i class="fa-solid fa-location-dot"></i> 3rd Floor, VR Mall, Metro Zone, No. 44,
+                                pillayar
+                                koil Street, jawaharlal Nehru Rd, Anna Nagar, Chennai<span class="km"> <i
+                                        class="fa-solid fa-circle ms-2"></i> 15.4 km</span>
+                            </p>
+
+                            <div class="experience">
+                                <span>Dolby Atmos</span>
+                                <span>4K Projection</span>
+                                <span>Recliner</span>
+                            </div>
+
+                            <div class="amenities">
+                                <div>
+                                    <i class="fa-solid fa-cookie-bite"></i>
+                                    Snacks
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-square-parking"></i>
+                                    Parking
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wifi"></i>
+                                    WiFi
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                    Accessible
+                                </div>
+                            </div>
+
+
+                            <button class="btn btn-danger w-100">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="theater-card">
+                        <div class="theater-poster">
+                            <img src="https://images.unsplash.com/photo-1635400138431-0bbde4d01484?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Movie">
+                            <span class="premium-badge">
+                                MULTIPLEX
+                            </span>
+                            <span class="theater-ratings">
+                                ⭐ 4.5
+                            </span>
+                        </div>
+
+                        <div class="theater-content">
+                            <h5 class="fs-5 text-center">Mayajaal Multiplex: ECR, Chennai</h5>
+
+                            <p class="text-center">
+                                <i class="fa-solid fa-location-dot"></i> No. 34/1, ECR, Kanathur, Near Toll Plaza,
+                                Chennai
+                                <span class="km"> <i class="fa-solid fa-circle ms-2"></i> 20.9 km</span>
+                            </p>
+                            <div class="experience">
+                                <span>IMAX</span>
+                                <span>Laser</span>
+                                <span>Recliner</span>
+                            </div>
+                            <div class="amenities">
+                                <div>
+                                    <i class="fa-solid fa-cookie-bite"></i>
+                                    Snacks
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-square-parking"></i>
+                                    Parking
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wifi"></i>
+                                    WiFi
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                    Accessible
+                                </div>
+                            </div>
+
+                            <button class="btn btn-danger w-100">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="theater-card">
+                        <div class="theater-poster">
+                            <img src="https://images.pexels.com/photos/7991112/pexels-photo-7991112.jpeg" alt="Movie">
+                            <span class="premium-badge">
+                                PREMIUM
+                            </span>
+                            <span class="theater-ratings">
+                                ⭐ 4.6
+                            </span>
+                        </div>
+
+                        <div class="theater-content">
+                            <h5 class="fs-5 text-center">PVR Heritage RSL</h5>
+
+                            <p class="text-center">
+                                <i class="fa-solid fa-location-dot"> </i> 1st Floor, Near Uthandi Toll Gate, No.17.
+                                Uthandi
+                                Village, Sholinganallur Taluk, ECR, Chennai<span class="km"> <i
+                                        class="fa-solid fa-circle ms-2"></i> 19.2 km</span>
+                            </p>
+                            <div class="experience">
+                                <span>IMAX</span>
+                                <span>Dolby Atmos</span>
+                                <span>Recliner</span>
+                            </div>
+                            <div class="amenities">
+                                <div>
+                                    <i class="fa-solid fa-cookie-bite"></i>
+                                    Snacks
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-square-parking"></i>
+                                    Parking
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wifi"></i>
+                                    WiFi
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                    Accessible
+                                </div>
+                            </div>
+
+                            <button class="btn btn-danger w-100">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="theater-card">
+                        <div class="theater-poster">
+                            <img src="https://images.unsplash.com/photo-1643553517154-24eb7fd86437?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Movie">
+                            <span class="classic-badge">
+                                CLASSIC
+                            </span>
+                            <span class="theater-ratings">
+                                ⭐ 4.4
+                            </span>
+                        </div>
+
+                        <div class="theater-content">
+                            <h5 class="fs-5 text-center">Kamala Cinemas 4K RGB Laser Dolby</h5>
+
+                            <p class="text-center">
+                                <i class="fa-solid fa-location-dot"> </i> No.156, Arcot Road, Somasundara Bharathi
+                                Nagar,
+                                Vadapalani, Chennai <span class="km"> <i class="fa-solid fa-circle ms-2"></i> 11.0
+                                    km</span>
+                            </p>
+                            <div class="experience">
+                                <span>Dolby Atmos</span>
+                                <span>4K Projection</span>
+                                <span>Classic</span>
+                            </div>
+                            <div class="amenities">
+                                <div>
+                                    <i class="fa-solid fa-cookie-bite"></i>
+                                    Snacks
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-square-parking"></i>
+                                    Parking
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wifi"></i>
+                                    WiFi
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                    Accessible
+                                </div>
+                            </div>
+
+                            <button class="btn btn-danger w-100">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="theater-card">
+                        <div class="theater-poster">
+                            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Movie">
+                            <span class="premium-badge">
+                                PREMIUM
+                            </span>
+                            <span class="theater-ratings">
+                                ⭐ 4.5
+                            </span>
+                        </div>
+
+                        <div class="theater-content">
+                            <h5 class="fs-5 text-center">S2 Perambur</h5>
+
+                            <p class="text-center">
+                                <i class="fa-solid fa-location-dot"> </i> 2nd Floor, Spectrum Mall, Paper
+                                Mills Road, Perambur, Chennai <span class="km"> <i class="fa-solid fa-circle ms-2"></i>
+                                    7.1
+                                    km</span>
+                            </p>
+
+                            <div class="experience">
+                                <span>Dolby Atmos</span>
+                                <span>Laser</span>
+                                <span>Recliner</span>
+                            </div>
+
+                            <div class="amenities">
+                                <div>
+                                    <i class="fa-solid fa-cookie-bite"></i>
+                                    Snacks
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-square-parking"></i>
+                                    Parking
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wifi"></i>
+                                    WiFi
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                    Accessible
+                                </div>
+                            </div>
+
+                            <button class="btn btn-danger w-100">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer mt-5">
+        <div class="container container_footer">
+            <div class="row gy-4">
+
+                <!-- About -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="f1">
+                        <h2 class="fs-4"><i class="fa-solid fa-masks-theater"></i>CineGo</h2>
+                        <p class="fs-5 w-100">
+                            Redefining the theatrical experience with
+                            cutting-edge technology and unparalleled luxury
+                            services.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-6 col-sm-6 col-lg-3">
+                    <div class="f2 mx-5">
+                        <h2 class="fs-4 ">QUICK LINKS</h2>
+                        <ul>
+                            <li>About</li>
+                            <li>Help</li>
+                            <li>T&C</li>
+                            <li>Privacy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Support -->
+                <div class="col-6 col-sm-6 col-lg-3">
+                    <div class="f2">
+                        <h2>SUPPORT</h2>
+                        <ul>
+                            <li>Contact</li>
+                            <li>Careers</li>
+                            <li>Feedback</li>
+                            <li>Sitemap</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="f3">
+                        <h2>CONTACT US</h2>
+                        <table>
+                            <tr>
+                                <td><i class="fa-solid fa-envelope"></i></td>
+                                <td>support@cinego.com</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-phone"></i></td>
+                                <td>+91-8231230987</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-location-dot"></i></td>
+                                <td>742 Evergreen Terrace, TN</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div class="text-center pt-2">
+            © 2026 CineGo. All Rights Reserved.
+        </div>
+    </footer>
+        <!-- Popup -->
+    <div class="auth-popup" id="authPopup">
+        <div class="auth-card">
+            <button class="close-btn" onclick="closeAuth()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="auth-header">
+                <h2>CineGo</h2>
+                <p>Welcome back. Sign in to continue.</p>
+            </div>
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="showLogin()" type="button">
+                    Sign In
+                </button>
+
+                <button class="tab-btn" onclick="showSignup()" type="button">
+                    Sign Up
+                </button>
+            </div>
+            <div class="auth-body">
+                <!-- Login -->
+                <form class="login-form">
+
+                    <input type="email" placeholder="Email Address" class="auth-input" autocomplete="email">
+
+                    <input type="password" placeholder="Password" class="auth-input" autocomplete="current-password">
+
+                    <div class="auth-links">
+                        <label>
+                            <input type="checkbox" id="rememberMe">
+                            Remember me
+                        </label>
+
+                        <a href="#" id="forgotPassword">Forgot?</a>
+                    </div>
+
+                    <button type="submit" class="auth-btn">
+                        Continue
+                    </button>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="button" class="google-btn">
+                        <i class="fa-brands fa-google"></i>
+                        Continue with Google
+                    </button>
+
+                </form>
+                <!-- Signup -->
+                <form class="signup-form d-none">
+
+                    <input type="text" placeholder="Full Name" class="auth-input">
+
+                    <input type="email" placeholder="Email Address" class="auth-input" autocomplete="email">
+
+                    <input type="password" placeholder="Password" class="auth-input" autocomplete="new-password">
+
+                    <input type="password" placeholder="Confirm Password" class="auth-input"
+                        autocomplete="confirm-password">
+
+                    <button type="submit" class="auth-btn">
+                        Create Account
+                    </button>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="button" class="google-btn">
+                        <i class="fa-brands fa-google"></i>
+                        Continue with Google
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+   <!-- ================= Profile Drawer ================= -->
+    <div class="profile-overlay" id="profileOverlay">
+
+        <div class="profile-sidebar">
+
+            <div class="profile-header">
+
+                <h3>My Profile</h3>
+
+                <button class="profile-close" id="closeProfile">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+            <div class="profile-user">
+                <div class="profile-avatar" id="profileAvatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <h4 id="profileName">Guest</h4>
+                    <p id="profileEmail">Please Login</p>
+                </div>
+
+            </div>
+
+            <div class="profile-menu">
+
+                <a href="./ticket.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    My Bookings
+                </a>
+
+                <a href="./contact.html">
+                    <i class="fa-brands fa-teamspeak"></i>
+                    chat With Us
+                </a>
+
+                <a href="terms.html">
+                    <i class="fa-solid fa-file-contract"></i>
+                    Terms & Conditions
+                </a>
+
+                <a href="privacy.html">
+                    <i class="fa-solid fa-file-shield"></i>
+                    Privacy Policy
+                </a>
+            </div>
+            <button class="logout-btn" id="loginBtn" onclick="showAuth()" style="display:none;">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </button>
+
+            <button class="logout-btn" id="logoutBtn" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/profile.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/city.js"></script>
+    <script src="../js/cinema.js"></script>
+    
+</body>
+
+</html>

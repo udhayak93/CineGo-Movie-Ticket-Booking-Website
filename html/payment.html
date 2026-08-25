@@ -1,0 +1,1388 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineGo | Payment</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/payment.css" />
+</head>
+
+<body>
+  <nav class="navbar custom-nav navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fs-1" href="#"><i class="fa-solid fa-masks-theater"></i> CineGo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../html/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/movies.html">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/cinemas.html">Theaters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/ticket.html">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/offers.html">Offers</a>
+                    </li>
+                </ul>
+                <div class="search-container me-2">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search movies, theatres..." class="form-control" id="searchInput">
+                </div>
+                <div class="d-flex align-items-center gap-3 loc">
+
+                    <div class="city-dropdown">
+
+                        <button class="city-btn" id="cityBtn">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span id="selectedCity">Chennai</span>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+                        <div class="city-menu" id="cityMenu">
+
+                            <div class="city-search">
+
+                                <i class="fa-solid fa-magnifying-glass"></i>
+
+                                <input type="text" id="citySearch" placeholder="Search for your city">
+
+                            </div>
+
+                            <div class="city-list">
+
+                                <div class="city-item active" data-city="Chennai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Chennai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Bengaluru">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Bengaluru</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Hyderabad">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Hyderabad</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Mumbai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Mumbai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Delhi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Delhi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Kochi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Kochi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Coimbatore">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Coimbatore</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Madurai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Madurai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <button class="btn btn-danger rounded-pill " id="profileIcon">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+
+
+                    <div class="theme-btn">
+                        <i class="fas fa-adjust"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+  <section class="payment-page">
+    <div class="container">
+      <div class="booking-path">
+        <a href="index.html">
+          <i class="fa-solid fa-house"></i>
+          Home
+        </a>
+        <span>/</span>
+        <a href="bookings.html"> Bookings </a>
+        <span>/</span>
+        <a href="seat_booking.html"> Seat Booking </a>
+        <span>/</span>
+        <span class="active">Payment</span>
+      </div>
+      <div class="payment-timer text-danger text-center">
+        <span>
+          <i class="fa-regular fa-clock"></i>
+          Complete your booking in
+          <strong id="timer"></strong>
+          mins
+        </span>
+      </div>
+      <div class="row g-4 mt-2">
+        <div class="col-lg-8">
+          <div class="movie-summary-card">
+            <div class="row align-items-center">
+              <div class="col-lg-4">
+                <img id="moviePoster" class="img-fluid rounded-4 movie-poster" />
+              </div>
+              <div class="col-lg-8">
+                <div class="movie-header">
+                  <div>
+                    <h2 id="movieTitle"></h2>
+                  </div>
+                  <div class="movie-tags">
+                    <span> IMAX</span>
+                    <span>Dolby</span>
+                  </div>
+                </div>
+                <hr />
+                <div class="row sepration">
+                  <div class="col-lg-6 col-md-6 col-sm-12 d-flex">
+
+                    <i class="fa-solid fa-location-dot info-icon"></i>
+
+                    <div>
+                      <small>THEATRE</small>
+                      <h5 id="theatreName"></h5>
+                      <p id="theatreLocation"></p>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4 d-flex">
+
+                    <i class="fa-solid fa-calendar-days info-icon"></i>
+
+                    <div>
+                      <small>SHOWTIME</small>
+                      <h5 id="showDate"></h5>
+                      <p id="showTime"></p>
+                    </div>
+
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 d-flex">
+
+                    <i class="fa-solid fa-couch info-icon"></i>
+
+                    <div>
+                      <small>SEATS</small>
+                      <h5 id="seatRow"></h5>
+                      <p id="seatNumbers"></p>
+                    </div>
+
+                  </div>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center ticket-subtotal">
+                  <h5>Ticket Subtotal</h5>
+                  <h2 id="movieTicketSubtotal"></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="payment-card mt-4">
+            <div class="payment-header">
+              <div class="card-title">
+                <i class="fa-solid fa-tags"></i>
+                <h4>Offers & Coupons</h4>
+              </div>
+
+              <a href="#" class="view-all-offers">
+                View All
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+
+            <div class="coupon-box">
+              <input type="text" id="couponInput" class="form-control" placeholder="Enter coupon code (Ex: HDFC20)" />
+
+              <button type="button" id="applyCouponBtn" class="btn btn-danger">
+                Apply
+              </button>
+            </div>
+
+            <!-- Coupon Status -->
+            <div id="couponMessage" class="coupon-message mt-3"></div>
+
+            <!-- Dynamic Coupon Cards -->
+            <div class="row g-3 mt-3" id="offersContainer"></div>
+          </div>
+
+          <!-- ================= Snack Section ================= -->
+
+          <div class="payment-card mt-4">
+            <div class="payment-header">
+
+              <div class="card-title">
+                <i class="fa-solid fa-burger"></i>
+                <h4>Grab a Snack</h4>
+              </div>
+
+              <a href="#" id="viewAllSnacks" class="view-all-offers">
+                View All
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+
+            </div>
+
+            <div class="snack-category">
+              <button class="active" data-category="All">All</button>
+              <button data-category="Popcorn">🍿 Popcorn</button>
+              <button data-category="Drinks">🥤 Drinks</button>
+              <button data-category="Snacks">🍟 Snacks</button>
+              <button data-category="Pizza">🍕 Pizza</button>
+
+            </div>
+
+            <!-- Dynamic Cards -->
+
+            <div id="snackContainer" class="snack-grid"></div>
+            <div class="payment-card mt-4">
+
+              <div class="card-title">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <h4>Bill Summary</h4>
+              </div>
+
+              <div class="summary-row">
+                <span>Ticket Total</span>
+                <span id="billTicketTotal"></span>
+              </div>
+
+              <div class="summary-row">
+                <span>Coupon Discount</span>
+                <span id="discountTotal">-₹0.00</span>
+              </div>
+
+              <div class="summary-row">
+                <span>Snacks</span>
+                <span id="snackTotal">₹0.00</span>
+              </div>
+
+              <div class="summary-row">
+                <span>Convenience Fee</span>
+                <span id="convenienceFee">₹0.00</span>
+              </div>
+
+              <hr>
+
+              <div class="summary-row total">
+                <span>Grand Total</span>
+                <span id="grandTotal"></span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-4 payment-sidebar">
+<!-- ==========================================================
+                    BOOKING SUMMARY
+========================================================== -->
+
+<div class="booking-summary-card">
+
+    <div class="summary-top">
+
+        <h3>
+            Booking Summary
+        </h3>
+
+        <span id="orderNumber">
+            Order #CG-000000
+        </span>
+
+    </div>
+
+    <div class="summary-divider"></div>
+
+    <div class="summary-list">
+
+        <div class="summary-row">
+
+            <div class="summary-left">
+
+                <i class="fa-solid fa-film"></i>
+
+                <div>
+
+                    <label>Movie</label>
+
+                    <h5 id="summaryMovie">-</h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="summary-row">
+
+            <div class="summary-left">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <div>
+
+                    <label>Theatre</label>
+
+                    <h5 id="summaryTheatre">-</h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="summary-row">
+
+            <div class="summary-left">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                <div>
+
+                    <label>Show</label>
+
+                    <h5 id="summaryShow">-</h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="summary-row">
+
+            <div class="summary-left">
+
+                <i class="fa-solid fa-couch"></i>
+
+                <div>
+
+                    <label>Seats</label>
+
+                    <h5 id="summarySeats">-</h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="summary-row">
+
+            <div class="summary-left">
+
+                <i class="fa-solid fa-burger"></i>
+
+                <div>
+
+                    <label>Snacks</label>
+
+                    <h5 id="snackCount">0 Items</h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="summary-divider"></div>
+
+    <div class="amount-card">
+
+        <small>
+            TOTAL PAYABLE
+        </small>
+
+        <h1 id="payableAmount">
+            ₹0.00
+        </h1>
+
+    </div>
+
+    <div class="reward-card">
+
+        <div class="reward-head">
+
+            <span>
+
+                CineGo Rewards
+
+            </span>
+
+            <span id="rewardPoints">
+
+                0 pts
+
+            </span>
+
+        </div>
+
+        <div class="progress">
+
+            <div
+                id="rewardBar"
+                class="progress-bar">
+
+            </div>
+
+        </div>
+
+        <small id="rewardText">
+
+            0% to Next Reward
+
+        </small>
+
+    </div>
+
+</div>
+<div class="payment-card mt-4">
+    <div class="card-title">
+        <i class="fa-solid fa-user"></i>
+        <h4>Customer Details</h4>
+    </div>
+
+    <div class="customer-details mt-4">
+        <div id="customerForm"></div>
+    </div>
+    <button type="button" id="submitBtn" class="btn btn-danger w-100 mt-4">
+    Submit
+</button>
+</div>
+
+<!-- ==========================================================
+     PAYMENT SECTION
+========================================================== -->
+
+<div class="payment-container">
+
+    <div class="payment-card">
+
+        <!-- ==================================================
+             PAYMENT TITLE
+        =================================================== -->
+
+        <div class="payment-title">
+
+            <h3>
+                Payment Method
+            </h3>
+
+            <p>
+                Choose your preferred payment method
+            </p>
+
+        </div>
+
+
+        <!-- ==================================================
+             UPI PAYMENT
+        =================================================== -->
+
+        <div class="payment-option">
+
+            <!-- UPI HEADER -->
+
+            <div
+                class="payment-header"
+                onclick="selectPayment('upi')"
+            >
+
+                <div class="payment-left">
+
+                    <div class="payment-icon">
+
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h6>
+                            UPI
+                        </h6>
+
+                        <small>
+                            Pay using your UPI app
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="upi"
+                    id="upiPayment"
+                >
+
+            </div>
+
+
+            <!-- ==================================================
+                 UPI SUB CATEGORIES
+            =================================================== -->
+
+            <div
+                class="upi-form"
+                id="upiSection"
+            >
+
+                <h6 class="upi-heading">
+                    Choose your UPI app
+                </h6>
+
+
+                <div class="upi-list">
+
+
+                    <!-- GOOGLE PAY -->
+
+                    <button
+                        type="button"
+                        class="upi-btn"
+                        data-upi="Google Pay"
+                    >
+
+                        <div class="upi-logo google-pay">
+                            G
+                        </div>
+
+                        <span>
+                            Google Pay
+                        </span>
+
+                        <i class="fa-solid fa-check"></i>
+
+                    </button>
+
+
+                    <!-- PHONEPE -->
+
+                    <button
+                        type="button"
+                        class="upi-btn"
+                        data-upi="PhonePe"
+                    >
+
+                        <div class="upi-logo phonepe">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                        </div>
+
+                        <span>
+                            PhonePe
+                        </span>
+
+                        <i class="fa-solid fa-check"></i>
+
+                    </button>
+
+
+                    <!-- PAYTM -->
+
+                    <button
+                        type="button"
+                        class="upi-btn"
+                        data-upi="Paytm"
+                    >
+
+                        <div class="upi-logo paytm">
+                            P
+                        </div>
+
+                        <span>
+                            Paytm
+                        </span>
+
+                        <i class="fa-solid fa-check"></i>
+
+                    </button>
+
+
+                    <!-- BHIM -->
+
+                    <button
+                        type="button"
+                        class="upi-btn"
+                        data-upi="BHIM"
+                    >
+
+                        <div class="upi-logo bhim">
+                            B
+                        </div>
+
+                        <span>
+                            BHIM
+                        </span>
+
+                        <i class="fa-solid fa-check"></i>
+
+                    </button>
+
+                </div>
+
+
+                <!-- ==================================================
+                     UPI ID
+                =================================================== -->
+
+                <div class="upi-id-box">
+
+                    <label for="upiId">
+                        Or enter your UPI ID
+                    </label>
+
+
+                    <div class="upi-input-wrapper">
+
+                        <i class="fa-solid fa-at"></i>
+
+                        <input
+                            type="text"
+                            id="upiId"
+                            class="form-control"
+                            placeholder="example@upi"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <div
+                        id="upiError"
+                        class="upi-error"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             CARD PAYMENT
+        =================================================== -->
+
+        <div class="payment-option">
+
+            <!-- CARD HEADER -->
+
+            <div
+                class="payment-header"
+                onclick="selectPayment('card')"
+            >
+
+                <div class="payment-left">
+
+                    <div class="payment-icon">
+
+                        <i class="fa-regular fa-credit-card"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h6>
+                            Credit / Debit Card
+                        </h6>
+
+                        <small>
+                            Pay securely using your card
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="card"
+                    id="cardPayment"
+                >
+
+            </div>
+
+
+            <!-- CARD FORM -->
+
+            <div
+                class="card-form"
+                id="cardSection"
+            >
+
+                <!-- CARD NUMBER -->
+
+                <div class="form-group">
+
+                    <label class="form-label">
+                        Card Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cardNumber"
+                        class="form-control"
+                        placeholder="1234 5678 9012 3456"
+                        inputmode="numeric"
+                        maxlength="19"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <!-- CARD HOLDER -->
+
+                <div class="form-group">
+
+                    <label class="form-label">
+                        Card Holder Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cardHolder"
+                        class="form-control"
+                        placeholder="Enter card holder name"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <!-- EXPIRY + CVV -->
+
+                <div class="card-row">
+
+                    <div class="form-group">
+
+                        <label class="form-label">
+                            Expiry
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cardExpiry"
+                            class="form-control"
+                            placeholder="MM/YY"
+                            maxlength="5"
+                            inputmode="numeric"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label class="form-label">
+                            CVV
+                        </label>
+
+                        <input
+                            type="password"
+                            id="cardCvv"
+                            class="form-control"
+                            placeholder="CVV"
+                            maxlength="3"
+                            inputmode="numeric"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             NET BANKING
+        =================================================== -->
+
+        <div class="payment-option">
+
+            <!-- NET BANKING HEADER -->
+
+            <div
+                class="payment-header"
+                onclick="selectPayment('netbanking')"
+            >
+
+                <div class="payment-left">
+
+                    <div class="payment-icon">
+
+                        <i class="fa-solid fa-building-columns"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h6>
+                            Net Banking
+                        </h6>
+
+                        <small>
+                            Pay securely using your bank account
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="netbanking"
+                    id="netBankingPayment"
+                >
+
+            </div>
+
+
+            <!-- ==================================================
+                 NET BANKING FORM
+            =================================================== -->
+
+            <div
+                class="netbanking-form"
+                id="netBankingSection"
+            >
+
+                <!-- SEARCH -->
+
+                <div class="bank-search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="bankSearch"
+                        class="form-control"
+                        placeholder="Search your bank"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <h6 class="bank-heading">
+                    Popular Banks
+                </h6>
+
+
+                <!-- BANK LIST -->
+
+                <div
+                    class="bank-list"
+                    id="bankList"
+                >
+
+
+                    <!-- HDFC -->
+
+                    <button
+                        type="button"
+                        class="bank-item"
+                        data-bank="HDFC Bank"
+                    >
+
+                        <div class="bank-left">
+
+                            <div class="bank-logo hdfc-logo">
+                                H
+                            </div>
+
+                            <span>
+                                HDFC Bank
+                            </span>
+
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+
+                    <!-- SBI -->
+
+                    <button
+                        type="button"
+                        class="bank-item"
+                        data-bank="State Bank of India"
+                    >
+
+                        <div class="bank-left">
+
+                            <div class="bank-logo sbi-logo">
+                                SBI
+                            </div>
+
+                            <span>
+                                State Bank of India
+                            </span>
+
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+
+                    <!-- ICICI -->
+
+                    <button
+                        type="button"
+                        class="bank-item"
+                        data-bank="ICICI Bank"
+                    >
+
+                        <div class="bank-left">
+
+                            <div class="bank-logo icici-logo">
+                                i
+                            </div>
+
+                            <span>
+                                ICICI Bank
+                            </span>
+
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+
+                    <!-- AXIS -->
+
+                    <button
+                        type="button"
+                        class="bank-item"
+                        data-bank="Axis Bank"
+                    >
+
+                        <div class="bank-left">
+
+                            <div class="bank-logo axis-logo">
+                                A
+                            </div>
+
+                            <span>
+                                Axis Bank
+                            </span>
+
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+
+                    <!-- KOTAK -->
+
+                    <button
+                        type="button"
+                        class="bank-item"
+                        data-bank="Kotak Mahindra Bank"
+                    >
+
+                        <div class="bank-left">
+
+                            <div class="bank-logo kotak-logo">
+                                K
+                            </div>
+
+                            <span>
+                                Kotak Mahindra Bank
+                            </span>
+
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+
+                    <!-- YES BANK -->
+
+                    <button
+                        type="button"
+                        class="bank-item"
+                        data-bank="Yes Bank"
+                    >
+
+                        <div class="bank-left">
+
+                            <div class="bank-logo yes-logo">
+                                YES
+                            </div>
+
+                            <span>
+                                Yes Bank
+                            </span>
+
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+
+                    <!-- VIEW ALL -->
+
+                    <button
+                        type="button"
+                        class="view-all-bank"
+                        id="viewAllBanks"
+                    >
+
+                        <span>
+                            View All Banks
+                        </span>
+
+                        <i class="fa-solid fa-angle-right"></i>
+
+                    </button>
+
+                </div>
+
+
+                <!-- SELECTED BANK -->
+
+                <div
+                    id="selectedBankMessage"
+                    class="selected-bank-message"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             PAYMENT ERROR
+        =================================================== -->
+
+        <div
+            id="paymentError"
+            class="payment-error"></div>
+
+
+        <!-- ==================================================
+             PAYMENT SUCCESS
+        =================================================== -->
+
+        <div
+            id="paymentSuccess"
+            class="payment-success"
+        ></div>
+
+
+        <!-- ==================================================
+             PAY NOW
+        =================================================== -->
+
+        <div class="payment-action">
+    <button
+                type="button"
+                id="payNowBtn"
+            >
+
+                <i class="fa-solid fa-lock"></i>
+
+                Pay Now
+
+            </button>
+
+
+            <div class="payment-security">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                Secure payment
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+        </div>
+   <div class="success-popup" id="successPopup">
+  <div class="success-modal-card">
+
+    <div class="success-icon">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+
+    <h2>Payment Successful!</h2>
+
+    <p id="successMessage">
+      Your booking has been confirmed successfully.
+      Your e-ticket has been sent to your registered email
+      and mobile number.
+    </p>
+
+    <div class="booking-details">
+
+      <!-- BOOKING ID -->
+      <div class="detail-row">
+        <span>Booking ID</span>
+        <strong id="successBookingId">-</strong>
+      </div>
+
+      <!-- MOVIE -->
+      <div class="detail-row">
+        <span>Movie</span>
+        <strong id="successMovie">-</strong>
+      </div>
+
+      <!-- THEATRE -->
+      <div class="detail-row">
+        <span>Theatre</span>
+        <strong id="successTheatre">-</strong>
+      </div>
+
+      <!-- SHOW -->
+      <div class="detail-row">
+        <span>Show</span>
+        <strong id="successShow">-</strong>
+      </div>
+
+      <!-- SEATS -->
+      <div class="detail-row">
+        <span>Seats</span>
+        <strong id="successSeats">-</strong>
+      </div>
+
+      <!-- AMOUNT -->
+      <div class="detail-row total">
+        <span>Amount Paid</span>
+        <strong id="successAmount">₹0.00</strong>
+      </div>
+
+    </div>
+
+    <div class="success-actions">
+
+      <button
+        type="button"
+        class="ticket-btn"
+        id="viewTicketBtn"
+      >
+        <i class="fa-solid fa-ticket me-2"></i>
+        View Ticket
+      </button>
+
+      <button
+        type="button"
+        class="home-btn"
+        id="homeBtn"
+      >
+        <i class="fa-solid fa-house me-2"></i>
+        Home
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+      </div>
+  </section>
+  <!-- Popup -->
+  <div class="auth-popup" id="authPopup">
+    <div class="auth-card">
+      <button class="close-btn" onclick="closeAuth()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="auth-header">
+        <h2>CineGo</h2>
+        <p>Welcome back. Sign in to continue.</p>
+      </div>
+      <div class="auth-tabs">
+        <button class="tab-btn active" onclick="showLogin()" type="button">
+          Sign In
+        </button>
+
+        <button class="tab-btn" onclick="showSignup()" type="button">
+          Sign Up
+        </button>
+      </div>
+      <div class="auth-body">
+        <!-- Login -->
+        <form class="login-form">
+          <input type="email" placeholder="Email Address" class="auth-input" autocomplete="email" />
+
+          <input type="password" placeholder="Password" class="auth-input" autocomplete="current-password" />
+
+          <div class="auth-links">
+            <label>
+              <input type="checkbox" id="rememberMe" />
+              Remember me
+            </label>
+
+            <a href="#" id="forgotPassword">Forgot?</a>
+          </div>
+
+          <button type="submit" class="auth-btn">Continue</button>
+
+          <div class="divider">
+            <span>or</span>
+          </div>
+
+          <button type="button" class="google-btn">
+            <i class="fa-brands fa-google"></i>
+            Continue with Google
+          </button>
+        </form>
+        <!-- Signup -->
+        <form class="signup-form d-none">
+          <input type="text" placeholder="Full Name" class="auth-input" />
+
+          <input type="email" placeholder="Email Address" class="auth-input" autocomplete="email" />
+
+          <input type="password" placeholder="Password" class="auth-input" autocomplete="new-password" />
+
+          <input type="password" placeholder="Confirm Password" class="auth-input" autocomplete="confirm-password" />
+
+          <button type="submit" class="auth-btn">Create Account</button>
+
+          <div class="divider">
+            <span>or</span>
+          </div>
+
+          <button type="button" class="google-btn">
+            <i class="fa-brands fa-google"></i>
+            Continue with Google
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- ================= Profile Drawer ================= -->
+    <div class="profile-overlay" id="profileOverlay">
+
+        <div class="profile-sidebar">
+
+            <div class="profile-header">
+
+                <h3>My Profile</h3>
+
+                <button class="profile-close" id="closeProfile">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+            <div class="profile-user">
+                <div class="profile-avatar" id="profileAvatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <h4 id="profileName">Guest</h4>
+                    <p id="profileEmail">Please Login</p>
+                </div>
+
+            </div>
+
+            <div class="profile-menu">
+
+                <a href="./ticket.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    My Bookings
+                </a>
+
+                <a href="./contact.html">
+                    <i class="fa-brands fa-teamspeak"></i>
+                    chat With Us
+                </a>
+
+                <a href="terms.html">
+                    <i class="fa-solid fa-file-contract"></i>
+                    Terms & Conditions
+                </a>
+
+                <a href="privacy.html">
+                    <i class="fa-solid fa-file-shield"></i>
+                    Privacy Policy
+                </a>
+            </div>
+            <button class="logout-btn" id="loginBtn" onclick="showAuth()" style="display:none;">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </button>
+
+            <button class="logout-btn" id="logoutBtn" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/profile.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/city.js"></script>
+  <script src="../js/movies-data.js"></script>
+  <script src="../js/snacks-data.js"></script>
+  <script src="../js/payment.js"></script>
+</body>
+
+</html>

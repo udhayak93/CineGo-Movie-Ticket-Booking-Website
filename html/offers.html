@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CineGo - Offers</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Offers CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/offers.css">
+</head>
+
+<body>
+
+    <!-- ==================================================
+                         NAVBAR
+    ================================================== -->
+
+    <nav class="navbar custom-nav navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fs-1" href="#"><i class="fa-solid fa-masks-theater"></i> CineGo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../html/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/movies.html">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/cinemas.html">Theaters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/ticket.html">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../html/offers.html">Offers</a>
+                    </li>
+                </ul>
+                <div class="search-container me-2">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search movies, theatres..." class="form-control" id="searchInput">
+                </div>
+                <div class="d-flex align-items-center gap-3 loc">
+
+                    <div class="city-dropdown">
+
+                        <button class="city-btn" id="cityBtn">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span id="selectedCity">Chennai</span>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+                        <div class="city-menu" id="cityMenu">
+
+                            <div class="city-search">
+
+                                <i class="fa-solid fa-magnifying-glass"></i>
+
+                                <input type="text" id="citySearch" placeholder="Search for your city">
+
+                            </div>
+
+                            <div class="city-list">
+
+                                <div class="city-item active" data-city="Chennai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Chennai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Bengaluru">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Bengaluru</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Hyderabad">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Hyderabad</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Mumbai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Mumbai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Delhi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Delhi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Kochi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Kochi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Coimbatore">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Coimbatore</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Madurai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Madurai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <button class="btn btn-danger rounded-pill " id="profileIcon">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+
+
+                    <div class="theme-btn">
+                        <i class="fas fa-adjust"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================================================
+                       OFFERS HERO
+    ================================================== -->
+<section class="offers-hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="container">
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                <i class="fa-solid fa-fire"></i>
+                Exclusive Deals
+            </span>
+
+            <h1>
+                More Movies.
+                <span>More Savings.</span>
+            </h1>
+
+            <p>
+                Grab exciting offers, exclusive discounts and
+                special movie deals only on CineGo.
+            </p>
+
+            <button class="hero-btn" onclick="scrollToOffers()">
+                Explore Offers
+                <i class="fa-solid fa-arrow-down"></i>
+            </button>
+
+        </div>
+
+        <!-- Right Side Image -->
+        <div class="hero-image">
+            <img src="../Assets/offer.png" alt="Movie Offers">
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- ==================================================
+                     FEATURED OFFER
+    ================================================== -->
+
+    <section class="featured-section">
+
+        <div class="container">
+
+            <div class="featured-card">
+
+                <div class="featured-content">
+
+                    <span class="featured-tag">
+                        LIMITED TIME OFFER
+                    </span>
+
+                    <h2>
+                        Get <strong>25% OFF</strong>
+                        on your next movie!
+                    </h2>
+
+                    <p>
+                        Book your favourite movies and enjoy
+                        an instant discount on your ticket booking.
+                    </p>
+
+                    <div class="featured-code">
+
+                        <span>CINE25</span>
+
+                        <button onclick="copyCoupon('CINE25', this)">
+                            <i class="fa-regular fa-copy"></i>
+                            Copy Code
+                        </button>
+
+                    </div>
+
+                    <small>
+                        <i class="fa-regular fa-clock"></i>
+                        Valid till 31 Aug 2026
+                    </small>
+
+                </div>
+
+                <div class="featured-icon">
+
+                    <i class="fa-solid fa-ticket"></i>
+
+                    <span>25%</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+                         OFFER LIST
+    ================================================== -->
+
+    <section class="offers-section" id="offersSection">
+        <div class="container">
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        SAVE MORE
+                    </span>
+
+                    <h2>
+                        Latest Offers
+                    </h2>
+                </div>
+
+                <button id="offersViewBtn" class="offers-view-btn">
+                    View More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+            <!-- Filters -->
+            <div class="offer-filters">
+
+                <button class="filter-btn active" data-filter="all">
+                    All Offers
+                </button>
+
+                <button class="filter-btn" data-filter="movie">
+                    <i class="fa-solid fa-film"></i>
+                    Movie Tickets
+                </button>
+
+                <button class="filter-btn" data-filter="food">
+                    <i class="fa-solid fa-popcorn"></i>
+                    Food & Beverages
+                </button>
+
+                <button class="filter-btn" data-filter="payment">
+                    <i class="fa-solid fa-credit-card"></i>
+                    Payment Offers
+                </button>
+
+            </div>
+            <div class="offers-grid" id="offersGrid"></div>
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+                     HOW TO REDEEM
+    ================================================== -->
+
+    <section class="redeem-section">
+
+        <div class="container custom-redeem">
+
+            <div class="section-heading center">
+
+                <span class="section-label">
+                    EASY TO USE
+                </span>
+
+                <h2>
+                    How to Redeem?
+                </h2>
+
+                <p>
+                    Enjoy your CineGo offer in just four simple steps.
+                </p>
+
+            </div>
+
+
+            <div class="steps-grid">
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <div class="step-icon">
+                        <i class="fa-solid fa-ticket"></i>
+                    </div>
+
+                    <h3>
+                        Choose an Offer
+                    </h3>
+
+                    <p>
+                        Pick the offer that suits your movie plan.
+                    </p>
+
+                </div>
+
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <div class="step-icon">
+                        <i class="fa-regular fa-copy"></i>
+                    </div>
+
+                    <h3>
+                        Copy the Code
+                    </h3>
+
+                    <p>
+                        Copy the coupon code with one click.
+                    </p>
+
+                </div>
+
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <div class="step-icon">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+
+                    <h3>
+                        Book Your Movie
+                    </h3>
+
+                    <p>
+                        Select your movie, theatre and seats.
+                    </p>
+
+                </div>
+
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        04
+                    </div>
+
+                    <div class="step-icon">
+                        <i class="fa-solid fa-tag"></i>
+                    </div>
+
+                    <h3>
+                        Apply & Save
+                    </h3>
+
+                    <p>
+                        Apply your coupon and enjoy the discount.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="copy-toast" id="copyToast">
+        <i class="fa-solid fa-circle-check"></i>
+        Coupon code copied!
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="container container_footer">
+            <div class="row gy-4">
+
+                <!-- About -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="f1">
+                        <h2 class="fs-4"><i class="fa-solid fa-masks-theater text-danger"></i>CineGo</h2>
+                        <p class="fs-5 w-100">
+                            Redefining the theatrical experience with
+                            cutting-edge technology and unparalleled luxury
+                            services.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-6 col-sm-6 col-lg-3">
+                    <div class="f2 mx-5">
+                        <h2 class="fs-4">QUICK LINKS</h2>
+                        <ul>
+                            <li><a href="#carouselExampleCaptions">Home</a></li>
+                            <li><a href="#now-showing">Now Showing</a></li>
+                            <li><a href="#upcoming">Upcoming Movies</a></li>
+                            <li><a href="#offer-card">Exclusive Offers</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Support -->
+                <div class="col-6 col-sm-6 col-lg-3">
+                    <div class="f2">
+                        <h2>SUPPORT</h2>
+                        <ul>
+                            <li>My Bookings</li>
+                            <li>Cancellation & Refund</li>
+                            <li>Help Center</li>
+                            <li>Terms & Conditions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="f3">
+                        <h2>CONTACT US</h2>
+                        <table>
+                            <tr>
+                                <td><i class="fa-solid fa-envelope"></i></td>
+                                <td>support@cinego.com</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-phone"></i></td>
+                                <td>+91-8231230987</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-location-dot"></i></td>
+                                <td>742 Evergreen Terrace, TN</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div class="text-center pt-2">
+            © 2026 CineGo. All Rights Reserved.
+        </div>
+    </footer>
+    <!-- Popup -->
+    <div class="auth-popup" id="authPopup">
+        <div class="auth-card">
+            <button class="close-btn" onclick="closeAuth()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="auth-header">
+                <h2>CineGo</h2>
+                <p>Welcome back. Sign in to continue.</p>
+            </div>
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="showLogin()" type="button">
+                    Sign In
+                </button>
+
+                <button class="tab-btn" onclick="showSignup()" type="button">
+                    Sign Up
+                </button>
+            </div>
+            <div class="auth-body">
+                <!-- Login -->
+                <form class="login-form">
+
+                    <input type="email" placeholder="Email Address" class="auth-input" autocomplete="email">
+
+                    <input type="password" placeholder="Password" class="auth-input" autocomplete="current-password">
+
+                    <div class="auth-links">
+                        <label>
+                            <input type="checkbox" id="rememberMe">
+                            Remember me
+                        </label>
+
+                        <a href="#" id="forgotPassword">Forgot?</a>
+                    </div>
+
+                    <button type="submit" class="auth-btn">
+                        Continue
+                    </button>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="button" class="google-btn">
+                        <i class="fa-brands fa-google"></i>
+                        Continue with Google
+                    </button>
+
+                </form>
+                <!-- Signup -->
+                <form class="signup-form d-none">
+
+                    <input type="text" placeholder="Full Name" class="auth-input">
+
+                    <input type="email" placeholder="Email Address" class="auth-input" autocomplete="email">
+
+                    <input type="password" placeholder="Password" class="auth-input" autocomplete="new-password">
+
+                    <input type="password" placeholder="Confirm Password" class="auth-input"
+                        autocomplete="confirm-password">
+
+                    <button type="submit" class="auth-btn">
+                        Create Account
+                    </button>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="button" class="google-btn">
+                        <i class="fa-brands fa-google"></i>
+                        Continue with Google
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+  <!-- ================= Profile Drawer ================= -->
+    <div class="profile-overlay" id="profileOverlay">
+
+        <div class="profile-sidebar">
+
+            <div class="profile-header">
+
+                <h3>My Profile</h3>
+
+                <button class="profile-close" id="closeProfile">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+            <div class="profile-user">
+                <div class="profile-avatar" id="profileAvatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <h4 id="profileName">Guest</h4>
+                    <p id="profileEmail">Please Login</p>
+                </div>
+
+            </div>
+
+            <div class="profile-menu">
+
+                <a href="./ticket.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    My Bookings
+                </a>
+
+                <a href="./contact.html">
+                    <i class="fa-brands fa-teamspeak"></i>
+                    chat With Us
+                </a>
+
+                <a href="terms.html">
+                    <i class="fa-solid fa-file-contract"></i>
+                    Terms & Conditions
+                </a>
+
+                <a href="privacy.html">
+                    <i class="fa-solid fa-file-shield"></i>
+                    Privacy Policy
+                </a>
+            </div>
+            <button class="logout-btn" id="loginBtn" onclick="showAuth()" style="display:none;">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </button>
+
+            <button class="logout-btn" id="logoutBtn" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/profile.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/city.js"></script>
+    <script src="../js/movies-data.js"></script>
+    <script src="../js/offers.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie-Ticket_Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&icon_names=fastfood" />
+    <script src="https://kit.fontawesome.com/a93d142cd4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/movie.css">
+</head>
+
+<body>
+    <nav class="navbar custom-nav navbar-expand-lg fixed-top navbar-dark ">
+        <div class="container">
+            <a class="navbar-brand fs-1" href="#"><i class="fa-solid fa-masks-theater"></i> CineGo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../html/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../html/movies.html">Movies</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/cinemas.html">Theaters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/ticket.html">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/offers.html">Offers</a>
+                    </li>
+                </ul>
+                <div class="search-container me-2">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search movies, theatres..." class="form-control">
+                </div>
+                <div class="d-flex align-items-center gap-3 loc">
+                    <div class="city-dropdown">
+
+                        <button class="city-btn" id="cityBtn">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span id="selectedCity">Chennai</span>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+                        <div class="city-menu" id="cityMenu">
+
+                            <div class="city-search">
+
+                                <i class="fa-solid fa-magnifying-glass"></i>
+
+                                <input type="text" id="citySearch" placeholder="Search for your city">
+
+                            </div>
+
+                            <div class="city-list">
+
+                                <div class="city-item active" data-city="Chennai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Chennai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Bengaluru">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Bengaluru</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Hyderabad">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Hyderabad</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Mumbai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Mumbai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Delhi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Delhi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Kochi">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Kochi</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Coimbatore">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Coimbatore</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                                <div class="city-item" data-city="Madurai">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Madurai</span>
+                                    <i class="fa-solid fa-check check"></i>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button class="btn btn-danger rounded-pill " id="profileIcon">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+
+
+                    <div class="theme-btn">
+                        <i class="fas fa-adjust"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <section class="banner mt-5">
+        <div class="overlay"></div>
+        <div class="container banner-content mt-5">
+            <div class="row align-items-center min-vh-75">
+                <div class="col-lg-6">
+                    <span class="movie-tag">🔥 Movie Of The Week</span>
+                    <h1>JANA NAYAGAN</h1>
+                    <p>
+                        A gripping action drama about a fearless leader's fight for justice, packed with powerful
+                        emotions and mass moments.
+                    </p>
+                </div>
+
+                <div class="col-lg-6 d-flex flex-column flex-sm-row banner_button gap-3 mt-4">
+                    <button class="btn btn-danger px-4 py-2" onclick="bookNow('janaNayagan')">
+                        <i class="fa-solid fa-ticket"></i> Book Now
+                    </button>
+
+                    <button class="btn_custom px-4 py-2" onclick="openTrailer('janaNayagan')">
+                        <i class="fa-solid fa-play"></i> Watch Trailer
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="container py-5">
+
+        <div class="row">
+
+            <!-- ================= LEFT FILTER ================= -->
+            <div class="col-lg-3">
+
+                <!-- Mobile Filter Button -->
+                <div class="d-lg-none mobile-filter-btn mb-3">
+
+                    <button class="btn btn-danger w-100" data-bs-toggle="offcanvas" data-bs-target="#filterCanvas">
+
+                        <i class="fa-solid fa-sliders"></i>
+                        Filters
+
+                    </button>
+
+                </div>
+
+                <!-- Mobile Offcanvas -->
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="filterCanvas">
+
+                    <div class="offcanvas-header">
+
+                        <h5 class="offcanvas-title">
+                            Filters
+                        </h5>
+
+                        <button class="btn-close" data-bs-dismiss="offcanvas">
+                        </button>
+
+                    </div>
+
+                    <div class="offcanvas-body">
+
+                        <div class="filter-card">
+
+                            <!-- GENRES -->
+                            <div class="filter-section">
+
+                                <h6>GENRES</h6>
+
+                                <div class="genre-filter">
+
+                                    <button class="genre-btn active" data-genre="All">All</button>
+                                    <button class="genre-btn" data-genre="Action">Action</button>
+                                    <button class="genre-btn" data-genre="Animation">Animation</button>
+                                    <button class="genre-btn" data-genre="Comedy">Comedy</button>
+                                    <button class="genre-btn" data-genre="Drama">Drama</button>
+                                    <button class="genre-btn" data-genre="Family">Family</button>
+                                    <button class="genre-btn" data-genre="Horror">Horror</button>
+                                    <button class="genre-btn" data-genre="Romance">Romance</button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- LANGUAGE -->
+                            <div class="filter-section mt-4">
+
+                                <h6>LANGUAGE</h6>
+
+                                <select id="languageFilterMobile" class="form-select custom-select">
+
+                                    <option value="All">All Languages</option>
+                                    <option value="Tamil">Tamil</option>
+                                    <option value="English">English</option>
+                                    <option value="Hindi">Hindi</option>
+                                    <option value="Telugu">Telugu</option>
+                                    <option value="Malayalam">Malayalam</option>
+                                    <option value="Kannada">Kannada</option>
+
+                                </select>
+
+                            </div>
+
+                            <!-- STATUS -->
+                            <div class="filter-section mt-4">
+
+                                <h6>STATUS</h6>
+
+                                <div class="status-filter">
+
+                                    <button class="status-btn active" data-status="All">All</button>
+                                    <button class="status-btn" data-status="Now Showing">Now Showing</button>
+                                    <button class="status-btn" data-status="Coming Soon">Coming Soon</button>
+
+                                </div>
+
+                            </div>
+
+                            <div class="mt-4">
+
+                                <button id="clearFiltersMobile" class="btn btn-outline-light w-100">
+
+                                    <i class="fa-solid fa-rotate-left"></i>
+                                    Clear Filters
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Desktop Filter -->
+                <div class="filter-card d-sm-none d-lg-block">
+
+                    <!-- GENRES -->
+                    <div class="filter-section">
+
+                        <h6>GENRES</h6>
+
+                        <div class="genre-filter">
+
+                            <button class="genre-btn active" data-genre="All">All</button>
+                            <button class="genre-btn" data-genre="Action">Action</button>
+                            <button class="genre-btn" data-genre="Animation">Animation</button>
+                            <button class="genre-btn" data-genre="Comedy">Comedy</button>
+                            <button class="genre-btn" data-genre="Drama">Drama</button>
+                            <button class="genre-btn" data-genre="Family">Family</button>
+                            <button class="genre-btn" data-genre="Horror">Horror</button>
+                            <button class="genre-btn" data-genre="Romance">Romance</button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- LANGUAGE -->
+                    <div class="filter-section mt-4">
+
+                        <h6>LANGUAGE</h6>
+
+                        <select id="languageFilterDesktop" class="form-select custom-select">
+
+                            <option value="All">All Languages</option>
+                            <option value="Tamil">Tamil</option>
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Telugu">Telugu</option>
+                            <option value="Malayalam">Malayalam</option>
+                            <option value="Kannada">Kannada</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- STATUS -->
+                    <div class="filter-section mt-4">
+
+                        <h6>STATUS</h6>
+
+                        <div class="status-filter">
+
+                            <button class="status-btn active" data-status="All">All</button>
+                            <button class="status-btn" data-status="Now Showing">Now Showing</button>
+                            <button class="status-btn" data-status="Coming Soon">Coming Soon</button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-4">
+
+                        <button id="clearFiltersDesktop" class="btn btn-outline-light w-100">
+
+                            <i class="fa-solid fa-rotate-left"></i>
+                            Clear Filters
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= RIGHT CONTENT ================= -->
+            <div class="col-lg-9">
+
+                <!-- NOW SHOWING -->
+                <section id="nowShowingSection">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <h2 class="section-title mb-0">
+                            Now Showing
+                        </h2>
+
+                        <a href="#" id="viewAllNowShowing" class="text-danger text-decoration-none">
+
+                            View All
+
+                        </a>
+
+                    </div>
+
+                    <div class="cards" id="nowShowingContainer">
+                    </div>
+
+                </section>
+
+                <!-- UPCOMING -->
+                <section id="upcomingSection" class="mt-5">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <h2 class="section-title">
+                            Upcoming Blockbuster
+                        </h2>
+
+                        <a href="#" id="upcomingViewMoreBtn" class="text-danger text-decoration-none">
+
+                            View All
+
+                        </a>
+
+                    </div>
+
+                    <div class="cards" id="upcomingContainer">
+                    </div>
+
+                </section>
+
+                <!-- EMPTY -->
+                <div id="emptyState" class="text-center py-5 d-none">
+                    <i class="fa-solid fa-film fs-1 text-danger"></i>
+                    <h3 class="mt-3">
+                        No Movies Found
+                    </h3>
+                    <p class="text-secondary">
+                        Try changing your filters.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <footer class="footer mt-5">
+        <div class="container container_footer">
+            <div class="row gy-4">
+
+                <!-- About -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="f1">
+                        <h2 class="fs-4"><i class="fa-solid fa-masks-theater text-danger"></i>CineGo</h2>
+                        <p class="fs-5 w-100">
+                            Redefining the theatrical experience with
+                            cutting-edge technology and unparalleled luxury
+                            services.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-6 col-sm-6 col-lg-3">
+                    <div class="f2 mx-5">
+                        <h2 class="fs-4">QUICK LINKS</h2>
+                        <ul>
+                            <li><a href="#carouselExampleCaptions">Home</a></li>
+                            <li><a href="#now-showing">Now Showing</a></li>
+                            <li><a href="#upcoming">Upcoming Movies</a></li>
+                            <li><a href="#offer-card">Exclusive Offers</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Support -->
+                <div class="col-6 col-sm-6 col-lg-3">
+                    <div class="f2">
+                        <h2>SUPPORT</h2>
+                        <ul>
+                            <li>My Bookings</li>
+                            <li>Cancellation & Refund</li>
+                            <li>Help Center</li>
+                            <li>Terms & Conditions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="f3">
+                        <h2>CONTACT US</h2>
+                        <table>
+                            <tr>
+                                <td><i class="fa-solid fa-envelope"></i></td>
+                                <td>support@cinego.com</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-phone"></i></td>
+                                <td>+91-8231230987</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-location-dot"></i></td>
+                                <td>742 Evergreen Terrace, TN</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div class="text-center pt-2">
+            © 2026 CineGo. All Rights Reserved.
+        </div>
+    </footer>
+    <!-- Popup -->
+    <div class="auth-popup" id="authPopup">
+        <div class="auth-card">
+            <button class="close-btn" onclick="closeAuth()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="auth-header">
+                <h2>CineGo</h2>
+                <p>Welcome back. Sign in to continue.</p>
+            </div>
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="showLogin()" type="button">
+                    Sign In
+                </button>
+
+                <button class="tab-btn" onclick="showSignup()" type="button">
+                    Sign Up
+                </button>
+            </div>
+            <div class="auth-body">
+                <!-- Login -->
+                <form class="login-form">
+
+                    <input type="email" placeholder="Email Address" class="auth-input" autocomplete="email">
+
+                    <input type="password" placeholder="Password" class="auth-input" autocomplete="current-password">
+
+                    <div class="auth-links">
+                        <label>
+                            <input type="checkbox" id="rememberMe">
+                            Remember me
+                        </label>
+
+                        <a href="#" id="forgotPassword">Forgot?</a>
+                    </div>
+
+                    <button type="submit" class="auth-btn">
+                        Continue
+                    </button>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="button" class="google-btn">
+                        <i class="fa-brands fa-google"></i>
+                        Continue with Google
+                    </button>
+
+                </form>
+                <!-- Signup -->
+                <form class="signup-form d-none">
+
+                    <input type="text" placeholder="Full Name" class="auth-input">
+
+                    <input type="email" placeholder="Email Address" class="auth-input" autocomplete="email">
+
+                    <input type="password" placeholder="Password" class="auth-input" autocomplete="new-password">
+
+                    <input type="password" placeholder="Confirm Password" class="auth-input"
+                        autocomplete="confirm-password">
+
+                    <button type="submit" class="auth-btn">
+                        Create Account
+                    </button>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="button" class="google-btn">
+                        <i class="fa-brands fa-google"></i>
+                        Continue with Google
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+   <!-- ================= Profile Drawer ================= -->
+    <div class="profile-overlay" id="profileOverlay">
+
+        <div class="profile-sidebar">
+
+            <div class="profile-header">
+
+                <h3>My Profile</h3>
+
+                <button class="profile-close" id="closeProfile">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+            <div class="profile-user">
+                <div class="profile-avatar" id="profileAvatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <h4 id="profileName">Guest</h4>
+                    <p id="profileEmail">Please Login</p>
+                </div>
+
+            </div>
+
+            <div class="profile-menu">
+
+                <a href="./ticket.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    My Bookings
+                </a>
+
+                <a href="./contact.html">
+                    <i class="fa-brands fa-teamspeak"></i>
+                    chat With Us
+                </a>
+
+                <a href="terms.html">
+                    <i class="fa-solid fa-file-contract"></i>
+                    Terms & Conditions
+                </a>
+
+                <a href="privacy.html">
+                    <i class="fa-solid fa-file-shield"></i>
+                    Privacy Policy
+                </a>
+            </div>
+            <button class="logout-btn" id="loginBtn" onclick="showAuth()" style="display:none;">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </button>
+
+            <button class="logout-btn" id="logoutBtn" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="../js/movies-data.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/profile.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/city.js"></script>
+    <script src="../js/movies.js"></script>
+</body>
+
+</html>
