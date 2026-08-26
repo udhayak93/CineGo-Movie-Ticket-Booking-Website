@@ -420,52 +420,7 @@ background-color: var(--color-secondary);
   background-color: var(--color-primary);
 }
 
-.footer {
-  background: var(--card-bg);
-  color: var(--color-white);
-  margin-top: 80px;
-  border-top: 1px solid var(--border-color);
-  padding: 45px 0;
-}
 
-.container_footer {
-  padding: 50px 20px 20px;
-}
-
-.f1,
-.f2,
-.f3 {
-  margin: 0px;
-}
-
-.f2 ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 15px;
-}
-
-.f2 ul li {
-  margin-bottom: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.f2 ul li:hover {
-  color: var(--color-secondary);
-}
-
-.f3 table {
-  width: 100%;
-}
-
-.f3 td {
-  padding: 8px 0;
-}
-
-.f3 i {
-  color: var(--color-secondary);
-  margin-right: 10px;
-}
 
 @media (max-width: 992px) {
   .navbar-collapse {
