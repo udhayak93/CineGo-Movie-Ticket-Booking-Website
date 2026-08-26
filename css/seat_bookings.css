@@ -1,5 +1,4 @@
 
-
 * {
     margin: 0px;
     padding: 0px;
@@ -583,16 +582,13 @@ a {
     box-shadow:0 8px 25px rgba(255,255,255,.15);
 }
 .screen span {
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--color-grey-2);
+    position: static;
+    transform: none;
+    color: var(--color-black);
     font-size: .85rem;
     letter-spacing: 3px;
     text-transform: uppercase;
 }
-
 
 .seat-layout{
     display:flex;
@@ -819,187 +815,117 @@ a {
     transform:translateY(-2px);
 }
 
+/* =========================================================
+   RESPONSIVE ONLY
+========================================================= */
 
-@media (max-width:992px) {
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 992px) {
+
+    .booking-page {
+        margin-top: 90px;
+    }
+
+    .movie-card_01 {
+        gap: 25px;
+        padding: 18px;
+    }
+
+    .movie-poster {
+        width: 220px;
+        flex-shrink: 0;
+    }
+
+    .movie-top h1 {
+        font-size: 30px;
+    }
 
     .theatre-box {
-
         flex-direction: column;
         align-items: flex-start;
-
     }
 
     .theatre-right {
-
         width: 100%;
         justify-content: flex-start;
-
     }
 
     .seat {
-        width: 26px;
-        height: 26px;
-        
+        width: 28px;
+        height: 28px;
     }
-
 }
 
-@media(max-width:768px) {
 
-    .movie-card {
-        padding: 20px;
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+    }
+
+    .booking-page {
+        width: 100%;
+        margin-top: 85px;
+    }
+
+    .booking-path{
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       MOVIE CARD
+    ========================= */
+
+    .movie-card_01 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 18px;
+        margin-bottom: 25px;
+        border-radius: 18px;
+    }
+
+    .movie-poster {
+        width: 180px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .movie-content {
+        width: 100%;
+        min-width: 0;
     }
 
     .movie-top {
+        display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
+    }
+
+    .movie-top h1 {
+        font-size: 28px;
+        line-height: 1.2;
+        word-break: normal;
     }
 
     .movie-rating {
         display: none;
     }
 
-    .movie-top h1 {
-        font-size: 2rem;
-    }
-
-    .theatre-box {
-        padding: 20px;
-        align-items: center;
-    }
-
-    .theatre-left {
-        align-items: flex-start;
-    }
-
-    .theatre-icon {
-        align-self: center;
-    }
-
-    .show-details {
-
-        flex-direction: column;
-        gap: 10px;
-
-    }
-
-    .theatre-right {
-        gap: 10px;
-    }
-
-    .seat-section {
-        padding: 25px 15px;
-    }
-
-    .seat {
-        width: 22px;
-        height: 22px;
-        font-size: 10px;
-    }
-
-    .seat-section {
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .seat-layout {
-        width: max-content;
-        min-width: 620px;
-        align-items: flex-start;
-    }
-    .seat-row {
-        gap: 6px;
-    }
-
-    .row-name {
-        width: 28px;
-        margin-right: 10px;
-        font-size: 13px;
-    }
-
-    .seat-gap {
-        width: 50px;
-    }
-
-    .screen {
-        width: 80%;
-    }
-    .booking-summary{
-    flex-direction:column;
-    gap:15px;
-    align-items:flex-start;
-}
-
-.continue-btn{
-    width:100%;
-}
-
-
-}
-
-/*==================================================
-        MOBILE (576px and below)
-==================================================*/
-@media (max-width:576px) {
-
-    /* Container */
-    .container {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    /* Navbar */
-    .navbar-brand {
-        font-size: 2rem !important;
-    }
-
-    .search-container,
-    .loc {
-        display: none;
-    }
-
-    /* Booking */
-    .booking-page {
-        margin-top: 90px;
-    }
-
-    .booking-path {
-        font-size: .82rem;
-        gap: 8px;
-        margin-bottom: 20px;
-        flex-wrap: wrap;
-    }
-
-    /* ===========================
-            MOVIE CARD
-    =========================== */
-
-    .movie-card {
-        padding: 20px;
-        gap: 20px;
-        border-radius: 20px;
-    }
-
-    .movie-poster {
-        width: 170px;
-        min-width: 170px;
-        margin: auto;
-    }
-
-    .movie-top {
-        display: block;
-    }
-
-    .movie-top h1 {
-        font-size: 2rem;
-        line-height: 1.2;
-        margin-top: 20px;
-    }
-
     .movie-description {
-        font-size: .95rem;
+        font-size: 14px;
         line-height: 1.6;
+        margin: 15px 0;
     }
 
     .movie-badges {
@@ -1008,71 +934,81 @@ a {
 
     .movie-badges span {
         font-size: 12px;
-        padding: 7px 14px;
+        padding: 6px 12px;
     }
 
     .movie-info-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px 10px;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 20px;
     }
 
     .movie-info-grid div {
-        font-size: .95rem;
+        font-size: 14px;
     }
 
-    /* Hide rating on mobile */
-    .movie-rating {
-        display: none;
-    }
 
-    /* ===========================
-            THEATRE
-    =========================== */
+    /* =========================
+       THEATRE
+    ========================= */
 
     .theatre-box {
-        padding: 20px;
+        width: 100%;
+        padding: 18px;
+        margin: 25px 0;
         gap: 18px;
-    }
-
-    .theatre-left {
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+
+    .theatre-left {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
         gap: 12px;
     }
 
-    .theatre-icon {
-        width: 55px;
-        height: 55px;
+    .theatre-left h3 {
+        font-size: 20px;
+    }
+
+    .theatre-left p {
+        font-size: 14px;
     }
 
     .show-details {
+        width: 100%;
         justify-content: center;
         gap: 10px;
     }
 
     .show-details span {
-        justify-content: center;
+        font-size: 13px;
     }
 
     .theatre-right {
         width: 100%;
         justify-content: center;
-        gap: 10px;
     }
 
     .theatre-right span {
         width: 100%;
-        justify-content: center;
+        text-align: center;
     }
 
-    /* ===========================
-            TIME CARD
-    =========================== */
+
+    /* =========================
+       TIME CARDS
+    ========================= */
 
     .time-wrapper {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
         gap: 12px;
-        padding-bottom: 10px;
+        overflow-x: auto;
+        padding: 10px 2px 15px;
         scrollbar-width: none;
     }
 
@@ -1081,45 +1017,60 @@ a {
     }
 
     .time-card {
-        min-width: 170px;
+        flex: 0 0 160px;
+        min-width: 160px;
     }
+
+
+    /* =========================
+       SEAT SECTION
+    ========================= */
 
     .seat-section {
-        padding: 20px 15px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        padding: 20px 10px;
+        overflow: hidden;
     }
 
-    .seat-section::-webkit-scrollbar {
-        display: none;
+    .seat-header h3 {
+        font-size: 24px;
     }
 
-    .seat-layout {
-        width: max-content;
-        min-width: 620px;
-        align-items: flex-start;
-        gap: 14px;
-
-    }
-
-    .seat-row {
-        justify-content: flex-start;
-        width: max-content;
-    }
-
-    .row-name {
-        width: 24px;
-        margin-right: 10px;
+    .seat-header p {
         font-size: 13px;
     }
 
-    .seat-single {
-        gap: 4px;
+
+    .seat-layout {
+        width: 100%;
+        min-width: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        padding: 20px 5px 30px;
+
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .seat-layout::-webkit-scrollbar {
+        display: none;
+    }
+
+    .seat-row {
+        width: max-content;
+        min-width: max-content;
+        justify-content: flex-start;
     }
 
     .seat {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
         font-size: 9px;
         border-radius: 5px;
     }
@@ -1128,35 +1079,224 @@ a {
         font-size: 8px;
     }
 
+    .row-name {
+        width: 25px;
+        min-width: 25px;
+        margin-right: 8px;
+        font-size: 12px;
+    }
+
+    .seat-single {
+        gap: 5px;
+    }
+
     .seat-gap {
-        width: 40px;
+        width: 35px;
+        min-width: 35px;
     }
 
     .row-gap {
-        height: 30px;
+        height: 25px;
     }
+
+
+    /* =========================
+       SCREEN
+    ========================= */
 
     .screen {
-        width: 500px;
-        margin: 35px auto 45px;
-    }
-
-    .screen span {
-        top: 25px;
-        font-size: .75rem;
+        width: 90%;
+        max-width: 420px;
+        margin: 30px auto 35px;
+        padding: 11px 0;
+        font-size: 13px;
         letter-spacing: 2px;
     }
 
+
+    /* =========================
+       LEGEND
+    ========================= */
+
     .seat-legend {
-        width: 320px;
-        margin: auto;
+        width: 100%;
+        margin: 20px auto;
+        gap: 12px 20px;
         justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
     }
 
     .seat-legend div {
-        font-size: .8rem;
+        font-size: 12px;
     }
 
+    .seat-demo {
+        width: 16px;
+        height: 16px;
+    }
+
+
+    /* =========================
+       PRICE
+    ========================= */
+
+    .price {
+        width: 95%;
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+
+    /* =========================
+       BOOKING SUMMARY
+    ========================= */
+
+    .booking-summary {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+        padding: 16px;
+        margin-top: 25px;
+    }
+
+    .continue-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .booking-page {
+        margin-top: 80px;
+    }
+
+
+    .navbar-brand {
+        font-size: 1.8rem !important;
+    }
+
+    .search-container,
+    .loc {
+        display: none;
+    }
+
+
+    /* MOVIE */
+
+    .movie-card_01 {
+        padding: 15px;
+        border-radius: 16px;
+    }
+
+    .movie-poster {
+        width: 165px;
+    }
+
+        .movie-poster img {
+            height: 280px;
+        }
+
+    .movie-top h1 {
+        font-size: 25px;
+    }
+
+    .movie-description {
+        font-size: 13px;
+    }
+
+
+    /* THEATRE */
+
+    .theatre-box {
+        padding: 16px;
+    }
+
+    .theatre-left h3 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+        .theatre-left p {
+            text-align: center;
+        }
+
+    .show-details {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+
+    /* SEATS */
+
+    .seat-section {
+        padding: 18px 6px;
+    }
+
+    .seat {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+        font-size: 8px;
+    }
+
+    .seat-gap {
+        width: 28px;
+        min-width: 28px;
+    }
+
+    .row-name {
+        width: 22px;
+        min-width: 22px;
+        margin-right: 7px;
+        font-size: 11px;
+    }
+
+    .screen {
+        width: 88%;
+        max-width: 380px;
+    }
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+@media (max-width: 400px) {
+
+    .movie-card_01 {
+        padding: 13px;
+    }
+
+    .movie-poster {
+        width: 150px;
+    }
+
+    .movie-top h1 {
+        font-size: 23px;
+    }
+
+    .movie-badges span {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    .seat {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+    }
+
+    .seat-gap {
+        width: 25px;
+        min-width: 25px;
+    }
 }
