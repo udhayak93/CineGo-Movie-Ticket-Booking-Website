@@ -195,3 +195,252 @@
 .empty p{
     color:var(--color-white);
 }
+
+
+@media (max-width: 768px) {
+
+    .page {
+        width: 92%;
+        margin: 90px auto 50px;
+    }
+
+    .page-head {
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .page-head h1 {
+        font-size: 32px;
+        line-height: 1.1;
+    }
+
+    .page-head p {
+        font-size: 12px;
+    }
+
+    .booking-card {
+        grid-template-columns: 145px minmax(0, 1fr);
+        gap: 18px;
+        padding: 16px;
+    }
+
+    .poster {
+        width: 145px;
+        height: 188px;
+    }
+
+    .booking-main {
+        min-width: 0;
+    }
+
+    .booking-title {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+
+    .meta {
+        font-size: 13px;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px 18px;
+        margin-top: 22px;
+    }
+
+    .info label {
+        font-size: 10px;
+    }
+
+    .info span {
+        font-size: 12px;
+        word-break: break-word;
+    }
+
+    /* Actions move below poster + details */
+    .booking-actions {
+        grid-column: 1 / -1;
+        min-width: 0;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        padding-top: 4px;
+    }
+
+    .amount {
+        text-align: left;
+    }
+
+    .amount small {
+        font-size: 10px;
+    }
+
+    .amount strong {
+        font-size: 18px;
+    }
+
+    .actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .button {
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .page {
+        width: calc(100% - 24px);
+        margin: 80px auto 40px;
+    }
+
+    .page-head {
+        display: block;
+        margin-bottom: 18px;
+    }
+
+    .page-head h1 {
+        font-size: 30px;
+        margin-bottom: 8px;
+    }
+
+    .page-head p {
+        font-size: 12px;
+    }
+
+    .tabs {
+        width: 100%;
+        margin-top: 15px;
+        box-sizing: border-box;
+    }
+
+    .tab {
+        flex: 1;
+        padding: 9px 10px;
+    }
+
+    /* Card becomes single column */
+    .booking-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 14px;
+    }
+
+    /* Poster centered */
+    .poster {
+        width: 145px;
+        height: 188px;
+        margin: 0 auto;
+    }
+
+    .booking-main {
+        width: 100%;
+        text-align: center;
+    }
+
+    .booking-title {
+        font-size: 22px;
+    }
+
+    .meta {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    /* Info becomes one column */
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 20px;
+    }
+
+    .info label {
+        font-size: 10px;
+    }
+
+    .info span {
+        font-size: 13px;
+    }
+
+    .booking-actions {
+        grid-column: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .amount {
+        text-align: center;
+    }
+
+    .amount strong {
+        font-size: 20px;
+    }
+
+    .actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .button {
+        width: 100%;
+        padding: 11px 8px;
+        box-sizing: border-box;
+    }
+
+    .status {
+        margin-top: 15px;
+    }
+}
+
+
+@media (max-width: 360px) {
+
+    .page {
+        width: calc(100% - 20px);
+        margin-top: 75px;
+    }
+
+    .page-head h1 {
+        font-size: 27px;
+    }
+
+    .booking-card {
+        padding: 12px;
+        border-radius: 14px;
+    }
+
+    .poster {
+        width: 130px;
+        height: 170px;
+    }
+
+    .booking-title {
+        font-size: 20px;
+    }
+
+    .meta {
+        font-size: 12px;
+    }
+
+    .info span {
+        font-size: 12px;
+    }
+
+    .actions {
+        grid-template-columns: 1fr;
+    }
+}
