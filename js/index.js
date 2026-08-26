@@ -90,6 +90,15 @@ function playTrailer(button, movieKey) {
   const close = item.querySelector(".close-trailer");
 
   if (!frame) return;
+      const carousel = item.closest(".carousel");
+
+    if (carousel) {
+        const carouselBtn = bootstrap.Carousel.getInstance(carousel);
+
+        if (carouselBtn) {
+            carouselBtn.pause();
+        }
+    }
 
   if (image) image.style.display = "none";
 
