@@ -1511,7 +1511,13 @@ td {
 .f3 {
   margin: 0px;
 }
-
+ 
+.f1>h2{
+    font-size: 34px !important;
+}
+.f1>p:nth-child(2){
+  font-size: 18px !important;
+}
 .f2 ul {
   list-style: none;
   padding-left: 0;
@@ -1537,7 +1543,9 @@ td {
   width: 100%;
   border-collapse: collapse;
 }
-
+.f3 table th{
+  color: var(--color-white);
+}
 .f3 td {
   padding: 10px 0;
   color: var(--color-white);
@@ -2375,11 +2383,6 @@ td {
     justify-content: center;
   }
 
-  .hero-btns .btn {
-    width: auto;
-    flex: 1;
-  }
-
   .movie-poster img {
     height: 320px;
   }
@@ -2518,7 +2521,7 @@ td {
   .f1,
   .f2,
   .f3 {
-    text-align: center;
+    text-align: start;
   }
 
   .f2 ul {
@@ -2550,6 +2553,20 @@ td {
   .profile-avatar {
     width: 50px;
     height: 50px;
+  }
+  
+  .f2>.fs-4{
+    font-size: 16px !important;
+    font-weight: bold;
+  }
+  .f2 h2{
+     font-size: 16px;
+    font-weight: bold;
+  }
+
+  .f3 h2{
+    font-size: 16px;
+    font-weight: bold;
   }
 }
 
