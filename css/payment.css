@@ -277,7 +277,6 @@
 }
 
 .coupon-box input {
-    flex: 1;
     height: 54px;
     padding: 0 18px;
     border-radius: 14px;
@@ -1137,17 +1136,30 @@
 
 .payment-header {
     width: 100%;
-    min-height: 74px;
-
-    padding: 16px 18px;
-
     display: flex;
+    flex-direction: row !important;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: nowrap !important;
+    gap: 8px;
+}
 
-    cursor: pointer;
+.payment-header .card-title {
+    flex: 1 1 auto;
+    min-width: 0;
+}
 
-    background: var(--card-bg);
+.payment-header .card-title h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.view-all-offers {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
 }
 
 
@@ -1158,9 +1170,7 @@
 .payment-left {
     display: flex;
     align-items: center;
-
     gap: 13px;
-
     min-width: 0;
 }
 
@@ -1173,13 +1183,10 @@
     width: 44px;
     height: 44px;
     min-width: 44px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border-radius: 11px;
-
     background: var(--color-white);
     color: var(--color-secondary);
 
@@ -1193,12 +1200,9 @@
 
 .payment-header h6 {
     margin: 0 0 3px;
-
     color: var(--color-white);
-
     font-size: 15px;
     font-weight: 600;
-
     line-height: 1.3;
 }
 
@@ -1209,9 +1213,7 @@
 
 .payment-header small {
     color: var(--color-grey-2);
-
     font-size: 12px;
-
     line-height: 1.4;
 }
 
@@ -1223,13 +1225,9 @@
 .payment-header input[type="radio"] {
     width: 19px;
     height: 19px;
-
     margin: 0;
-
     flex-shrink: 0;
-
     accent-color: var(--color-secondary);
-
     cursor: pointer;
 }
 
@@ -1249,11 +1247,8 @@
 
 #upiSection {
     display: none;
-
     width: 100%;
-
     padding: 0 18px 20px;
-
     background: var(--card-bg);
 }
 
@@ -2881,6 +2876,25 @@ input:focus-visible {
 
 @media(max-width:576px) {
 
+
+    .payment-header {
+        flex-wrap: nowrap !important;
+    }
+
+    .payment-header .card-title {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .payment-header .card-title h4 {
+        font-size: 15px;
+    }
+
+    .view-all-offers {
+        flex-shrink: 0;
+        font-size: 12px;
+    }
+
     .snack-grid {
         grid-template-columns: 1fr;
     }
@@ -2956,7 +2970,6 @@ input:focus-visible {
 
     .payment-header {
         min-height: 68px;
-
         padding: 14px;
     }
 
