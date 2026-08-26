@@ -1,0 +1,244 @@
+/* =====================================================
+   CineGo - My Bookings Responsive Overrides
+   This file only changes the mobile/tablet layout.
+   Desktop styles remain untouched.
+===================================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .page {
+        width: calc(100% - 24px);
+        max-width: 100%;
+        margin: 90px auto 40px;
+        box-sizing: border-box;
+    }
+
+    .page-head {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .page-head h1 {
+        font-size: 32px;
+        line-height: 1.1;
+        margin-bottom: 8px;
+    }
+
+    .page-head p {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .tabs {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin-top: 16px;
+    }
+
+    .tab {
+        flex: 1;
+        padding: 9px 8px;
+        white-space: nowrap;
+    }
+
+    .booking-list {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .booking-card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        gap: 18px;
+        padding: 16px;
+        overflow: hidden;
+    }
+
+    .poster {
+        width: 145px;
+        height: 188px;
+        margin: 0 auto;
+        flex-shrink: 0;
+    }
+
+    .booking-main {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .booking-title {
+        font-size: 22px;
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    .meta {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .info-grid {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px 18px;
+        margin-top: 22px;
+    }
+
+    .info {
+        min-width: 0;
+    }
+
+    .info span {
+        font-size: 13px;
+        overflow-wrap: anywhere;
+    }
+
+    .booking-actions {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .amount {
+        text-align: left;
+        flex-shrink: 0;
+    }
+
+    .amount small {
+        font-size: 10px;
+    }
+
+    .amount strong {
+        font-size: 18px;
+    }
+
+    .actions {
+        min-width: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .button {
+        white-space: nowrap;
+        padding: 9px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .page {
+        width: calc(100% - 20px);
+        margin-top: 80px;
+    }
+
+    .page-head h1 {
+        font-size: 29px;
+    }
+
+    .tabs {
+        padding: 4px;
+        gap: 3px;
+    }
+
+    .tab {
+        font-size: 11px;
+        padding: 9px 5px;
+    }
+
+    .booking-card {
+        padding: 14px;
+        border-radius: 14px;
+    }
+
+    .poster {
+        width: 145px;
+        height: 188px;
+    }
+
+    .booking-title {
+        font-size: 21px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .booking-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .amount {
+        text-align: left;
+    }
+
+    .actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .button {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .page {
+        width: calc(100% - 16px);
+        margin-top: 75px;
+    }
+
+    .page-head h1 {
+        font-size: 27px;
+    }
+
+    .page-head p {
+        font-size: 11px;
+    }
+
+    .booking-card {
+        padding: 12px;
+    }
+
+    .poster {
+        width: 130px;
+        height: 170px;
+    }
+
+    .booking-title {
+        font-size: 20px;
+    }
+
+    .meta {
+        font-size: 12px;
+    }
+
+    .info span {
+        font-size: 12px;
+    }
+
+    .actions {
+        grid-template-columns: 1fr;
+    }
+}
