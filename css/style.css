@@ -240,9 +240,21 @@ a {
   color: var(--search-text);
   opacity: 0.7;
 }
-.loc{
-  justify-content:center;
+
+.loc {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    flex-shrink: 0;
 }
+
+.loc .city-dropdown,
+.loc .theme-btn,
+.loc #profileIcon {
+    flex-shrink: 0;
+}
+
 /*=========================
 CITY BUTTON
 =========================*/
@@ -2120,6 +2132,12 @@ td {
   .nav-link {
     padding: 8px 0;
   }
+
+    .loc {
+        width: 100%;
+        margin-top: 15px;
+        justify-content: center !important;
+    }
 
   .city-btn {
     padding: 7px 12px;
