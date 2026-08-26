@@ -196,82 +196,118 @@
     color:var(--color-white);
 }
 
-
 @media (max-width: 768px) {
 
+    body {
+        overflow-x: hidden;
+    }
+
     .page {
-        width: 92%;
-        margin: 90px auto 50px;
+        width: calc(100% - 24px);
+        max-width: 100%;
+        margin: 90px auto 40px;
+        box-sizing: border-box;
     }
 
     .page-head {
-        align-items: flex-start;
+        display: block;
         margin-bottom: 20px;
     }
 
     .page-head h1 {
         font-size: 32px;
         line-height: 1.1;
+        margin-bottom: 8px;
     }
 
     .page-head p {
         font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .tabs {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin-top: 16px;
+    }
+
+    .tab {
+        flex: 1;
+        padding: 9px 8px;
+        white-space: nowrap;
+    }
+
+    .booking-list {
+        width: 100%;
+        max-width: 100%;
     }
 
     .booking-card {
-        grid-template-columns: 145px minmax(0, 1fr);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
         gap: 18px;
         padding: 16px;
+        overflow: hidden;
     }
 
     .poster {
         width: 145px;
         height: 188px;
+        margin: 0 auto;
+        flex-shrink: 0;
     }
 
     .booking-main {
+        width: 100%;
         min-width: 0;
+        box-sizing: border-box;
     }
 
     .booking-title {
-        font-size: 20px;
+        font-size: 22px;
         line-height: 1.2;
+        overflow-wrap: anywhere;
     }
 
     .meta {
         font-size: 13px;
+        line-height: 1.7;
     }
 
     .info-grid {
+        width: 100%;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 15px 18px;
+        gap: 16px 18px;
         margin-top: 22px;
     }
 
-    .info label {
-        font-size: 10px;
+    .info {
+        min-width: 0;
     }
 
     .info span {
-        font-size: 12px;
-        word-break: break-word;
+        font-size: 13px;
+        overflow-wrap: anywhere;
     }
 
-    /* Actions move below poster + details */
     .booking-actions {
-        grid-column: 1 / -1;
+        width: 100%;
         min-width: 0;
-
+        box-sizing: border-box;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-
-        padding-top: 4px;
+        gap: 12px;
     }
 
     .amount {
         text-align: left;
+        flex-shrink: 0;
     }
 
     .amount small {
@@ -283,6 +319,7 @@
     }
 
     .actions {
+        min-width: 0;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
@@ -290,127 +327,77 @@
     }
 
     .button {
+        white-space: nowrap;
         padding: 9px 12px;
-        font-size: 11px;
     }
 }
-
 
 @media (max-width: 480px) {
 
     .page {
-        width: calc(100% - 24px);
-        margin: 80px auto 40px;
-    }
-
-    .page-head {
-        display: block;
-        margin-bottom: 18px;
+        width: calc(100% - 20px);
+        margin-top: 80px;
     }
 
     .page-head h1 {
-        font-size: 30px;
-        margin-bottom: 8px;
-    }
-
-    .page-head p {
-        font-size: 12px;
+        font-size: 29px;
     }
 
     .tabs {
-        width: 100%;
-        margin-top: 15px;
-        box-sizing: border-box;
+        padding: 4px;
+        gap: 3px;
     }
 
     .tab {
-        flex: 1;
-        padding: 9px 10px;
+        font-size: 11px;
+        padding: 9px 5px;
     }
 
-    /* Card becomes single column */
     .booking-card {
-        grid-template-columns: 1fr;
-        gap: 16px;
         padding: 14px;
+        border-radius: 14px;
     }
 
-    /* Poster centered */
     .poster {
         width: 145px;
         height: 188px;
-        margin: 0 auto;
-    }
-
-    .booking-main {
-        width: 100%;
-        text-align: center;
     }
 
     .booking-title {
-        font-size: 22px;
+        font-size: 21px;
     }
 
-    .meta {
-        font-size: 13px;
-        line-height: 1.7;
-    }
-
-    /* Info becomes one column */
     .info-grid {
         grid-template-columns: 1fr;
         gap: 14px;
-        margin-top: 20px;
-    }
-
-    .info label {
-        font-size: 10px;
-    }
-
-    .info span {
-        font-size: 13px;
     }
 
     .booking-actions {
-        grid-column: auto;
-        display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 15px;
-        width: 100%;
     }
 
     .amount {
-        text-align: center;
-    }
-
-    .amount strong {
-        font-size: 20px;
+        text-align: left;
     }
 
     .actions {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 8px;
     }
 
     .button {
         width: 100%;
-        padding: 11px 8px;
         box-sizing: border-box;
-    }
-
-    .status {
-        margin-top: 15px;
+        text-align: center;
     }
 }
-
 
 @media (max-width: 360px) {
 
     .page {
-        width: calc(100% - 20px);
+        width: calc(100% - 16px);
         margin-top: 75px;
     }
 
@@ -418,9 +405,12 @@
         font-size: 27px;
     }
 
+    .page-head p {
+        font-size: 11px;
+    }
+
     .booking-card {
         padding: 12px;
-        border-radius: 14px;
     }
 
     .poster {
