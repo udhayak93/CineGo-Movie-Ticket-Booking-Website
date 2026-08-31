@@ -430,21 +430,6 @@ background-color: var(--color-secondary);
     margin-top: 15px;
   }
 
-  .search-container {
-    width: 100%;
-    padding-left: 0;
-    margin: 20px 0;
-  }
-
-  .search-icon {
-    left: 18px;
-  }
-
-
-  .theme-btn {
-    margin: auto;
-  }
-
   .banner {
     text-align: left;
     padding: 60px 0;
