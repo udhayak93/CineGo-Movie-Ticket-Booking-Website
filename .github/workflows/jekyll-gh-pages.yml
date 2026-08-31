@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -23,6 +23,73 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Fix mobile navbar location controls
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path("css/style.css")
+          css = path.read_text(encoding="utf-8")
+
+          old = '''  .loc {
+        width: 100%;
+        margin-top: 15px;
+        justify-content: center !important;
+    }'''
+
+          new = '''  .loc {
+    width: auto !important;
+    margin-top: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    flex-wrap: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .loc .city-dropdown {
+    width: auto !important;
+    flex: 0 0 auto !important;
+  }
+
+  .loc .city-btn {
+    width: auto !important;
+    min-width: 100px !important;
+  }
+
+  .loc #profileIcon {
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    flex: 0 0 40px !important;
+  }
+
+  .loc .theme-btn {
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    flex: 0 0 40px !important;
+  }'''
+
+          if old in css:
+              css = css.replace(old, new, 1)
+              path.write_text(css, encoding="utf-8")
+
+      - name: Commit CSS fix back to main
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- css/style.css; then
+            echo "No CSS changes needed"
+          else
+            git add css/style.css
+            git commit -m "Fix mobile navbar location controls"
+            git push
+          fi
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
