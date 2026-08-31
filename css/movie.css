@@ -440,12 +440,6 @@ background-color: var(--color-secondary);
     left: 18px;
   }
 
-  .loc {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
 
   .theme-btn {
     margin: auto;
